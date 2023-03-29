@@ -89,24 +89,140 @@ function reverseWords(str){
 // console.log(str.toLocaleLowerCase());
 // console.log(str.trim());
 
-let str1  = 'Переходите на мой лучший сайт http:www.govno.ru - не пожалеете';
-let str2  = ' Спасибо за информацию';
-function isHaveLink (str) {
-  let reg = /https?:\/\/.+?\.[a-z]{2,}\s/im;
-  return str.match(reg);
-}
-if (isHaveLink(str1)) {
-  console.log(str1);
-  console.log('Найдена ссылка в строке');
-}
-if (isHaveLink(str2)) {
-  console.log(str2);
-  console.log('Найдена ссылка в строке');
-}
+// let str1  = 'Переходите на мой лучший сайт http:www.govno.ru - не пожалеете';
+// let str2  = ' Спасибо за информацию';
+// function isHaveLink (str) {
+//   let reg = /https?:\/\/.+?\.[a-z]{2,}\s/im;
+//   return str.match(reg);
+// }
+// if (isHaveLink(str1)) {
+//   console.log(str1);
+//   console.log('Найдена ссылка в строке');
+// }
+// if (isHaveLink(str2)) {
+//   console.log(str2);
+//   console.log('Найдена ссылка в строке');
+// }
 
-let money = 'У мня в кармане 150 руб и 200 рублей на карте';
-let reg = /\d+/g;
-let matches = money.match(reg);
-console.log(matches);
-money.replace(reg, 'N');
+// let money = 'У мня в кармане 150 руб и 200 рублей на карте';
+// let reg = /\d+/g;
+// let matches = money.match(reg);
+// console.log(matches);
+// money.replace(reg, 'N');
+
+  // Завершите функцию/метод, чтобы он возвращал URL-адрес с чем-либо после #удаления привязки ( ).
+
+  // Примеры
+  // "www.codewars.com#about" --> "www.codewars.com"
+  // "www.codewars.com?page=1" -->"www.codewars.com?page=1"
+  
+  // function removeUrlAnchor(url){
+  //   // TODO: complete
+  //   let indexDelete = url.indexOf('#');
+  //   console.log (indexDelete); 
+  //   while (indexDelete) {
+  //     url.splice(indexDelete,1);
+  //     indexDelete = url.indexOf('#');
+  //   }
+
+  //   return console.log (url); 
+
+  //   //return console.log (url.splice(indexDelete,1)); 
+  // }
+  // removeUrlAnchor('www.codewars.comabout');
+
+
+//   let ExampleArray = [1,2,3,1,'5', null, false, NaN,3];
+
+// console.log("Позиция единицы", ExampleArray.indexOf(1) );
+// console.log("Позиция следующей единицы", ExampleArray.indexOf(1,2) );
+// console.log("Позиция тройки", ExampleArray.indexOf(3) );
+// console.log("Позиция тройки, если starting index отрицательный", ExampleArray.indexOf(3,-2) );
+// console.log("Позиция false", ExampleArray.indexOf(false) );
+// console.log("Позиция 5", ExampleArray.indexOf("5") ); 
+// console.log("Позиция NaN", ExampleArray.indexOf(NaN));
+
+// let ExampleArray = [1, 55, 23, 89, 99, -1];
+// let answer = ExampleArray.find(elem => elem >= 56);
+
+// console.log(answer);
+
+// let ExampleArray = [1, 55, 23, 89, 99, -1];
+// let answer = ExampleArray.filter(elem=> elem >=55);
+// console.log(answer);
+// console.log(ExampleArray);
+
+
+
+
+// function findElem (url) {
+//   return url
+//     .split('')
+//     .filter(elem => elem!=='#')
+//     .join('')
+// }
+
+// console.log (findElem ('www.c#odew##ars.com#about')) ;
+
+
+// function findElem (url) {
+//   if (url.indexOf('#')== -1) return url
+//   return url
+//     .split('')
+//     .slice(0, url.indexOf('#'))
+//     .join('')
+// }
+
+// console.log (findElem ('www.codewars.com/katas')) ;
+
+// function removeUrlAnchor(url){
+//   // TODO: complete
+//   return url.replace(/#.*/gi,"");
+// }
+
+// function removeUrlAnchor(url){
+//   return url.split('#')[0];
+// }
+
+// let m = new Mat ();
+// m.set ('name', 'Alex');
+// m.set ('age', 25);
+// m.set ('singal', true);
+
+// console.log(m);
+
+arr =   [[1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 10],
+        [11, 12, 13, 14, 15,33], 
+        [16, 17, 18, 19, 20], 
+        [21, 22, 23, 24, 25]] 
+
+// snail([  [1, 2, 3, 4, 5],
+        //  [6, 7, 8, 9, 10],
+        //  [11, 12, 13, 14, 15], 
+        //  [16, 17, 18, 19, 20], 
+        //  [21, 22, 23, 24, 25]]), 
+
+//          [1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]);
+
+snail = function(array) {
+
+  console.log(array);
+  console.log('разрезанный массив');
+  // console.log(array[2].length);
+  let dinamArray = array.splice(1);
+  console.log(dinamArray);
+  // let arrLength = array.length;
+  // let dinamArray = array.splice(arrLength);
+  // console.log( dinamArray);
+  // console.log(array);
+  // console.log(array);
+  // console.log(array[4].length);
+  // // console.log(array[4]);
+  
+}
+snail(arr);
+// console.log(snail);
+
+
 
