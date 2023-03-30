@@ -205,24 +205,83 @@ arr =   [[1, 2, 3, 4, 5],
 
 //          [1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]);
 
-snail = function(array) {
 
-  console.log(array);
-  console.log('разрезанный массив');
-  // console.log(array[2].length);
-  let dinamArray = array.splice(1);
-  console.log(dinamArray);
-  // let arrLength = array.length;
-  // let dinamArray = array.splice(arrLength);
-  // console.log( dinamArray);
-  // console.log(array);
-  // console.log(array);
-  // console.log(array[4].length);
-  // // console.log(array[4]);
-  
+// **** Улитка Учитывая n x nмассив, вернуть элементы массива, расположенные от самых внешних элементов
+//  до среднего элемента, перемещаясь по часовой стрелке. ****
+
+// snail = function(array) {
+
+//   console.log(array);
+//   console.log('разрезанный массив');
+//   // console.log(array[2].length);
+//   let dinamArray = array.splice(1);
+//   console.log(dinamArray);
+ 
+// }
+// snail(arr);
+
+class Point {
+  constructor (x,y) {
+    this.x = x;
+    this.y = y;
+  }
 }
-snail(arr);
-// console.log(snail);
+
+class Curcle {
+  constructor (p,r) {
+    this.p = p;
+    this.r = r;
+    this.colors = ['red', 'green', 'blue'];
+  }
+}
+let p = new Point (5,10);
+let c = new Curcle (p,20);
+let json = JSON.stringify(c);
+// console.log(json);
+let obj = JSON.parse(json);
+// console.log(obj);
+
+///***Ваша задача — вернуть число из строки. ***
+//Вам будет дана строка из перепутанных цифр и букв,
+// вы должны вернуть все числа в этой строке в том порядке, в котором они встречаются.
 
 
+var filterString = function(value) {
+    let res = value.split('').filter(elem => {
+      if (isNaN(parseFloat(elem))==false) {
+          return true;
+      }
+    });
+    // return Number(res.join(''));
+}
+// console.log(filterString ("aa1bb2cc3dd"));
+// console.log(filterString);
 
+//  ******* Задача ****
+//При разработке веб-сайта вы обнаруживаете, что некоторые участники имеют проблемы со входом в систему. Просматривая код, вы обнаружите, что все входы, оканчивающиеся на «_», создают проблемы. Итак, вы хотите написать функцию, которая берет массив пар имен входа и адресов электронной почты и выводит
+// массив всех пар имен входа и адресов электронной почты из имен входа, оканчивающихся на "_".
+
+function searchNames(logins){
+
+  let rr = (logins.toString()).split('');
+  console.log(rr);
+
+  let breakLog = logins.filter((elem,index,arr)=>{
+
+    // if (HTMLPreElement)
+
+  });
+}
+
+function searchNames(logins){
+  let breakLog = logins.filter((elem,index,arr)=>{
+
+    if ((elem[0][elem[0].length - 1]) == '_')
+    return true;
+  });
+
+  return breakLog;
+}
+// console.log(searchNames ([ [ "foo", "foo@foo.com" ], [ "ййййbar_", "bar@bar.com" ] ]));
+
+// alert( null || 2 && 3 || 4 );
