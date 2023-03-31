@@ -254,6 +254,14 @@ var filterString = function(value) {
     });
     // return Number(res.join(''));
 }
+
+function searchNames( logins ){
+  return logins.filter(a=>a[0].endsWith('_'));
+}
+
+function searchNames( logins ){
+  return logins.filter(function (login) { return login[0].slice(-1) === '_' });
+}
 // console.log(filterString ("aa1bb2cc3dd"));
 // console.log(filterString);
 
@@ -285,3 +293,36 @@ function searchNames(logins){
 // console.log(searchNames ([ [ "foo", "foo@foo.com" ], [ "ййййbar_", "bar@bar.com" ] ]));
 
 // alert( null || 2 && 3 || 4 );
+
+//**Учитывая различное количество целочисленных аргументов, вернуть цифры, которых нет ни в одном из них. */
+
+function unusedDigits(Arr) {
+  let digitArr = [0,1,2,3,4,5,6,7,8,9]
+  inputArr = Arr.toString().replace(/,/g,'').split('');
+    inputArr = inputArr.map(item => item = Number(item));
+      digitArr = digitArr.filter((elem) => { 
+        if (!(inputArr.includes(elem))) return true;});
+  return digitArr.sort().toString().replace(/,/g,'');
+  
+};
+///console.log (unusedDigits ([034, 56, 789] ));
+
+
+//***Учитывая строку, состоящую из цифр [0-9], вернуть строку, 
+//в которой каждая цифра повторяется количество раз, равное ее значению. 
+//explode("312")   "333122"*/
+
+function explode(s) {
+    let output = [];
+    s = s.split('');
+    s = s.map((elem,index) => {
+      // console.log(Number(elem));
+        for (let step = 0;  step < (Number(elem));  step++) {
+          output.push(elem);
+
+        };
+    });
+  return output.join('');
+};
+
+// console.log(explode("3612"));
