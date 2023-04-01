@@ -327,3 +327,4 @@ function explode(s) {
 
 // console.log(explode("3612"));
 ///српрапр
+//// реверт
