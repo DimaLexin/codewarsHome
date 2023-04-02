@@ -324,7 +324,85 @@ function explode(s) {
     });
   return output.join('');
 };
+// console.log(explode("312"));  
 
-// console.log(explode("3612"));
-///српрапр
-//// реверт
+const numbers = [0,1,2,3,4,5];
+
+numbers.sort((a,b)=> { 
+
+  if (a>b) return -1; 
+   if (a===b) return 0; 
+    if (a<b) return 1;  });
+
+    
+// console.log(numbers);
+
+//**оздайте функцию, которая принимает целое число в качестве аргумента 
+//  и возвращает значение "Even"для четных или "Odd"нечетных чисел.
+
+function evenOrOdd(number) {
+  return number%2==0 ? 'Even' : 'Odd'
+}
+// console.log(evenOrOdd(9));
+
+// function flowerArr (arr) {
+//   console.log(arr);
+//      arr = arr.reduce((acc,elem)=> acc+elem
+//       , 0);
+// }
+
+// console.log(flowerArr([1,5,3]));
+
+// let arr1 = [1, 5, 3];
+// let result = arr1.reduce((sum, current) => sum + Math.pow(current,3), 0);
+// console.log(arr1);
+
+// function narcissistic(value) {
+//   return value.reduce((accum, current, index,_arr)=>accum + Math.pow(current,_arr.length),0) == value.join('') ? console.log(value.join(''),",True") : console.log (value.join(''),",False")
+// }
+
+function narcissistic(value) {
+  return value.reduce((accum, current, index,_arr)=>accum + Math.pow(current,_arr.length),0) === value.join('');
+}
+
+// function narcissistic(value) {
+//   const digits = value.toString().split(''); // преобразуем число в массив цифр
+//   const n = digits.length; // находим количество цифр
+//   const sum = digits.reduce((acc, digit) => acc + Math.pow(digit, n), 0); // суммируем цифры, возведенные в n-ю степень
+//   return sum === value; // возвращаем true, если сумма равна исходному числу, иначе false
+// }
+// console.log(narcissistic([1,5,4]));
+
+
+
+// //*****Meerkat(["tails", "body", "heads"]), ["heads", "body", "tails"]);
+//     assert.deepEqual(fixTheMeerkat(["bottom", "middle", "top"]), ["top", "middle", "bottom"]);
+//     assert.deepEqual(fixTheMeerkat(["lower legs", "torso", "upper legs"]), ["upper legs", "torso", "lower legs"]);
+//     assert.deepEqual(fixTheMeerkat(["ground", "rainbow", "sky"]), ["sky", "rainbow", "ground"]); ****///
+
+
+function fixTheMeerkat(arr) {
+  //your code here 
+  return arr.reverse();
+ }
+// console.log(["tails", "body", "heads"]);
+
+
+///***Напишите функцию, которая берет массив слов, объединяет их в предложение и возвращает предложение. 
+// Вы можете игнорировать необходимость очистки слов или добавления знаков препинания, но вы должны добавлять пробелы между каждым словом. Будьте внимательны, не должно быть пробела ни в начале, ни в конце предложения! */
+//  ['hello', 'world', 'this', 'is', 'great']  =>  'hello world this is great'
+
+function smash (words) {
+  return (words.join(' '))
+};
+/// console.log(smash(['hello', 'world', 'this', 'is', 'great']));
+
+///Примеры:  Вход: 42145 Выход:54421   Вход: 145263 Выход:654321  Вход: 123456789 Выход:987654321
+
+function descendingOrder(n){
+  return n.join('');
+  //return n.sort((a-b)=> a-b);
+}
+console.log(descendingOrder(42145));
+
+
