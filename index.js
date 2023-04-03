@@ -362,7 +362,7 @@ function evenOrOdd(number) {
 // }
 
 function narcissistic(value) {
-  return value.reduce((accum, current, index,_arr)=>accum + Math.pow(current,_arr.length),0) === value.join('');
+  return ((String(value)).split('')).map(elem =>Number(elem)).reduce((accum, current, index,_arr)=>accum + Math.pow(current,_arr.length),0) === value;
 }
 
 // function narcissistic(value) {
@@ -371,7 +371,7 @@ function narcissistic(value) {
 //   const sum = digits.reduce((acc, digit) => acc + Math.pow(digit, n), 0); // суммируем цифры, возведенные в n-ю степень
 //   return sum === value; // возвращаем true, если сумма равна исходному числу, иначе false
 // }
-// console.log(narcissistic([1,5,4]));
+// console.log(narcissistic(153));
 
 
 
@@ -400,9 +400,65 @@ function smash (words) {
 ///Примеры:  Вход: 42145 Выход:54421   Вход: 145263 Выход:654321  Вход: 123456789 Выход:987654321
 
 function descendingOrder(n){
-  return n.join('');
-  //return n.sort((a-b)=> a-b);
+  console.log(String(n))
+  return   Number(((((n.toString()).split('')).map(elem =>Number(elem))).sort((a,b) => b-a)).join(''))
+
 }
-console.log(descendingOrder(42145));
+// console.log(typeof(descendingOrder(42145)));
+
+//  Возвращает количество (количество) гласных в заданной строке.
+//Мы будем рассматривать a, e, i, o, uкак гласные для этой Ката (но не y).
+//Входная строка будет состоять только из строчных букв и/или пробелов.
+
+function getCount(str) {
+  const yap = (str.split('')).filter(elem => {
+    if (elem == 'a' ||  elem == 'e' ||  elem === 'i' || elem === 'o')
+    return elem;
+  })
+  return yap.length 
+}
+// console.log(getCount('o a kak ushakov lil vo kashu kakao'));
+
+///Завершите функцию, которая принимает два аргумента и возвращает все числа, которые делятся на заданный делитель. 
+//Первый аргумент — это массив numbers, а второй — divisor.
+// Пример (Ввод1, Ввод2 --> Выход)
+// [1, 2, 3, 4, 5, 6], 2 --> [2, 4, 6]
+function divisibleBy(numbers, divisor){
+  return numbers = numbers.filter(elem => elem%divisor===0)
+}
+
+//console.log(divisibleBy([1, 2, 3, 4, 5, 6],2))
+
+//Рассмотрим массив/список овец, где некоторые овцы могут отсутствовать на своем месте. Нам нужна функция, которая подсчитывает количество овец, присутствующих в массиве (true означает наличие).
+//Правильный ответ будет 17.
+// Подсказка: не забудьте проверить наличие неправильных значений, таких как null/undefined
+
+function countSheeps(arrayOfSheep) {
+  return arrayOfSheep.filter(elem=>elem===true).length;
+}
+// console.log(countSheeps([true,  true,  true,  false,
+//   true,  true,  true,  true ,
+//   true,  false, true,  false,
+//   true,  false, false, true ,
+//   true,  true,  true,  true ,
+//   false, false, true,  true]));
+
+// Что, если нам нужно, чтобы длина слов, разделенных пробелом, была добавлена ​​в конце того же слова
+// и возвращена в виде массива?
+// Пример (ввод --> вывод)
+// "apple ban" --> ["apple 5", "ban 3"]
+// "you will win" -->["you 3", "will 4", "win 3"]
+// Ваша задача — написать функцию, которая принимает строку и возвращает массив/список с длиной каждого слова,
+// добавленного к каждому элементу.
+// Примечание. Строка будет содержать как минимум один элемент; слова всегда будут разделены пробелом.
+
+function addLength(str) {
+   console.log(str.split(''));
+   str = str.split('').map(elem=>{
+    
+    return  map;
+   })
 
 
+  }
+  console.log(addLength("you will win"));
