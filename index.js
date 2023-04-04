@@ -452,13 +452,90 @@ function countSheeps(arrayOfSheep) {
 // добавленного к каждому элементу.
 // Примечание. Строка будет содержать как минимум один элемент; слова всегда будут разделены пробелом.
 
-function addLength(str) {
-   console.log(str.split(''));
-   str = str.split('').map(elem=>{
-    
-    return  map;
-   })
+// function addLength(str) {
+//    console.log(str.split(' '));
+//     str = (str.split(' ')).reduce((accum, elem)=> accum + elem + ' '+ (elem.split('')).length + ',',"")
+//    return (str.split(',')).slice(0,-1)
+//   }
+
+  // function addLength(str) {
+  //   str = str.split(' ').map(elem => elem + ' '+elem.length)
+  //   return str
+  // }
+ 
+ 
+ function addLength(str) {
+  str = str.split(' ').map(elem => {
+  console.log(`${elem} ${elem.length}`)
+  })
+  return str
+}
+
+// console.log(addLength("you will win"));
+
+//ОПИСАНИЕ:
+// Напишите функцию, которая принимает список строк в качестве аргумента и возвращает отфильтрованный список,
+// содержащий те же элементы, но с удаленными «гусями».
+// Гуси — это любые строки в следующем массиве, который предварительно заполнен в вашем решении:
+//   ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+// Например, если этот массив был передан в качестве аргумента:
+//  ["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]
+// Ваша функция вернет следующий массив:
+// ["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
+// Элементы в возвращаемом массиве должны быть в том же порядке, что и в исходном массиве, переданном
+//  вашей функции, хотя и с удаленными «гусями». Обратите внимание, что все строки будут в том же регистре, 
+//  что и предоставленные, а некоторые элементы могут повторяться.
+
+// function gooseFilter (birds) {
+//   var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+//   let str = birds.join(',');
+//   geese.forEach(gees => str = str.replaceAll(gees+',',''))
+//   return str.split(',');
+// };
+function gooseFilter (birds) {
+  var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  birds = birds.filter(bird =>!geese.includes(bird))
+  return birds;
+};
+
+// console.log(gooseFilter(["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]))
 
 
-  }
-  console.log(addLength("you will win"));
+// var stroka = ["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish", "African"];
+// var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+// console.log(stroka.join(','))
+// let rte = (stroka.join(',')).replaceAll(geese[0], " ")
+//  console.log(rte)
+
+// //**ОПИСАНИЕ:
+// / Результаты матчей нашей команды записываются в виде набора строк. Каждый матч представлен
+// строкой в ​​формате "x:y", где x— счет нашей команды, а y— счет наших противников.
+// Например: ["3:1", "2:2", "0:1", ...]
+// Очки за каждый матч начисляются следующим образом:
+// если x > y: 3 очка (победа)
+// если x < y: 0 очков (проигрыш)
+// если x = y: 1 балл (ничья)
+// Нам нужно написать функцию, которая берет этот набор и возвращает количество очков, 
+// которое наша команда ( x) набрала в чемпионате по приведенным выше правилам.
+// Примечания:
+// наша команда всегда играет 10 матчей в чемпионате
+// 0 <= х <= 4
+// 0 <= у <= 4 */
+
+function points(games) {
+  const gamePoints = games.reduce((summ, current, index) =>{
+    let curElem = current.split(':')
+    if (curElem[0] > curElem[1]){
+      summ = summ + 3;
+      return summ
+    }  if (curElem[0] < curElem[1]){
+      summ= summ + 0
+      return summ} 
+      else {
+        summ= summ + 1
+        return summ}
+
+  },0)
+  return gamePoints
+}
+console.log(points(["1:0","2:0","3:0","4:4","2:2","3:3","1:4","2:3","2:4","3:4"]));
