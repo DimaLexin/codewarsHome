@@ -523,19 +523,44 @@ function gooseFilter (birds) {
 // 0 <= у <= 4 */
 
 function points(games) {
-  const gamePoints = games.reduce((summ, current, index) =>{
+  const gamePoints = games.reduce((summ, current) =>{
     let curElem = current.split(':')
-    if (curElem[0] > curElem[1]){
-      summ = summ + 3;
-      return summ
-    }  if (curElem[0] < curElem[1]){
-      summ= summ + 0
-      return summ} 
-      else {
-        summ= summ + 1
-        return summ}
-
+    return summ+= (curElem[0] > curElem[1]) ? 3:(curElem[0] === curElem[1])?1:0;
   },0)
   return gamePoints
 }
-console.log(points(["1:0","2:0","3:0","4:4","2:2","3:3","1:4","2:3","2:4","3:4"]));
+//console.log(points(["1:0","2:0","3:0","4:4","2:2","3:3","1:4","2:3","2:4","3:4"]));
+
+//Учитывая строку, вы должны вернуть строку, в которой каждый символ (с учетом регистра) повторяется один раз.
+// Примеры (ввод -> вывод):
+// * "String"      -> "SSttrriinngg"
+// * "Hello World" -> "HHeelllloo  WWoorrlldd"
+// * "1234!_ "     -> "11223344!!__  "
+// Удачи!
+
+// function doubleChar(str) {
+//   return (str.split('').reduce((doublesumm, current)=>doublesumm + current.repeat(2),''))
+// }
+function doubleChar(str) {
+  let outputStr='';
+  for (let i=0; i < str.length; i++) {
+      outputStr += str[i].repeat(2)
+  }
+  return outputStr
+}
+// console.log(doubleChar("Hello World"))
+
+function updateLight(current) { 
+  return (current ==="red") ? "green": (current ==="yellow") ? "red": "yellow"
+}
+//console.log(updateLight("green"))
+
+function monkeyCount(n) {
+  let numberMonk =[];
+  while (n>0) {
+    numberMonk.unshift(n)
+    n--
+  }
+  return numberMonk
+}
+//console.log(monkeyCount(5))
