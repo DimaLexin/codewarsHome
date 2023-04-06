@@ -564,3 +564,80 @@ function monkeyCount(n) {
   return numberMonk
 }
 //console.log(monkeyCount(5))
+
+/* возвращает результирующую строку.
+
+Примеры:
+
+Input -> Output
+"8 j 8   mBliB8g  imjB8B8  jl  B" -> "8j8mBliB8gimjB8B8jlB"
+"8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
+"8aaaaa dddd r     " -> "8aaaaaddddr"//
+ */
+
+function noSpace(x){
+  return x.replaceAll(' ','')
+}
+// console.log(noSpace("8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd"))
+
+/* Формат
+Телефонные номера хранятся в виде строк и состоят из 11 цифр, например '02078834982', всегда должны начинаться с 0.
+
+Однако произошло нечто странное, и теперь все телефонные номера содержат множество случайных символов,
+ пробелов, а некоторые вообще не являются телефонными номерами!
+
+Например, '02078834982'как-то стало 'efRFS:)0207ERGQREG88349F82!'и есть еще много строк, 
+которые нам нужно проверить.
+
+Задание
+Учитывая строку, вы должны решить, содержит ли она действительный номер телефона. 
+Если это так, верните исправленный
+ номер телефона в виде строки, т.е. '02078834982'без пробелов или специальных символов, иначе верните
+  "Not a phone number".
+ */
+
+  function isItANum(str) {
+    const regex = /^[0-9]+$/;
+    const cleanedStr = str.replace(/[^0-9]/g, '');
+  
+    if (regex.test(cleanedStr) && cleanedStr.length === 11 && cleanedStr.startsWith('0')) {
+      return cleanedStr;
+    } else {
+      return "Not a phone number";
+    }
+  }
+  //console.log(isItANum("020788349(((82()"));
+
+/*   ОПИСАНИЕ:
+Напишите функцию, которая принимает строку скобок и определяет, допустим ли порядок скобок. 
+Функция должна возвращать значение true, если строка действительна и falseнедействительна.
+
+Примеры
+"()"              =>  true
+")(()))"          =>  false
+"("               =>  false
+"(())((()())())"  =>  true */
+
+
+// function validParentheses(parenStr) {
+  
+//   return (parenStr[0]===')') ? false: ((parenStr.replaceAll('(','1,')).replaceAll(')','-1,').slice(0,-1).split(',').reduce ((accum,current) => accum+Number(current),0) === 0) ? true : false
+// }
+
+function validParentheses(parenStr) {
+
+parenStr = parenStr.split('')
+console.log(parenStr)
+parenStr = parenStr.map((elem,index) => {
+    if (elem==='(') {
+      parenStr.slice(parenStr.indexOf(')'),1)
+      console.log(parenStr)
+      parenStr.shift()
+      console.log(parenStr)
+    }
+   
+  })
+  return 
+}
+console.log(validParentheses("())(()"))
+
