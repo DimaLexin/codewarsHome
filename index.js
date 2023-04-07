@@ -639,5 +639,91 @@ parenStr = parenStr.map((elem,index) => {
   })
   return 
 }
-console.log(validParentheses("())(()"))
+//console.log(validParentheses("())(()")) */
 
+/* ИИ заразил текст персонажем!!
+
+Этот текст теперь полностью изменен на этот символ.
+
+Если текст или символ пусты, вернуть пустую строку.
+Никогда не будет случая, когда оба пусты, так как ничего не происходит!!
+
+Примечание. Символ представляет собой строку длиной 1 или пустую строку.
+
+Пример
+text before = "abc"
+character   = "z"
+text after  = "zzz" */
+
+
+function contamination(text, char){
+    if ((text !=='') || (char !=='')) {
+      n = text.length
+      text =''
+      text = char.repeat(n)  
+    }   
+    else    text =''
+return text
+}
+//console.log(contamination("abc","z"))
+
+/* ОПИСАНИЕ:
+Напишите функцию, которая принимает целое число nи строку sв качестве параметров и возвращает строку,
+ sповторяющуюся ровно столько nраз.
+Примеры (ввод -> вывод)
+6, "I"     -> "IIIIII"
+5, "Hello" -> "HelloHelloHelloHelloHello" */
+
+function repeatStr (n, s) {
+  return s.repeat(n);
+}
+//console.log(repeatStr(5, "Hello"))
+
+/* Ваша задача - создать разменную машину.
+
+Автомат принимает определенный диапазон монет и банкнот, возвращает сдачу монетами 20 и 10 пенсов
+в минимальном количестве штук. Например, 50 пенсов вернут две части по 20 пенсов и одну 10 пенсов. 
+
+Машина всегда будет пытаться вернуть сдачу, например, если вы введете 20 пенсов, она вернет «10 пенсов 10 пенсов».
+Автомат принимает следующие монеты и банкноты: 5 фунтов стерлингов, 2 фунта стерлингов, 1 фунт стерлингов,
+50 пенсов, 20 пенсов. Любые монеты и купюры, не принятые автоматом, будут возвращены. 
+
+Если бы вы, например, положили банкноту в 20 фунтов стерлингов в автомат, она была бы вам возвращена,
+а не разобрана на сдачу.
+Эта разменная машина запрограммирована на прием и выдачу строк, а не чисел. 
+Изменение будет возвращено как одна строка с изменением, разделенным одиночными пробелами и без запятых. 
+Значения строки будут убывающими. */
+
+function changeMe(moneyIn){ 
+ // console.log(moneyIn)
+  switch (moneyIn) {
+    case '£5': {moneyIn = '20p '.repeat(25);
+                //console.log(moneyIn.slice(0,-1))
+                return moneyIn.slice(0,-1)
+    }
+    break;
+    case '£2': {moneyIn = '20p '.repeat(10);
+               //console.log(moneyIn.slice(0,-1))
+               return moneyIn.slice(0,-1)
+    } 
+    break;
+    case '£1': {moneyIn = '20p '.repeat(5);
+               //console.log(moneyIn.slice(0,-1))
+               return moneyIn.slice(0,-1)
+    } 
+    break;
+    case '50p': {moneyIn = '20p '.repeat(2) + '10p';
+                //console.log(moneyIn)
+                return moneyIn
+    } 
+    break;
+    case '20p': {moneyIn = '10p '.repeat(2);
+                //console.log(moneyIn.slice(0,-1))
+                return moneyIn.slice(0,-1)
+    } 
+    break;
+    default: return moneyIn
+  }
+
+}
+console.log(changeMe('20p'))
