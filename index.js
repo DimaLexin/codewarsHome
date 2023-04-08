@@ -608,38 +608,7 @@ function noSpace(x){
   }
   //console.log(isItANum("020788349(((82()"));
 
-/*   ОПИСАНИЕ:
-Напишите функцию, которая принимает строку скобок и определяет, допустим ли порядок скобок. 
-Функция должна возвращать значение true, если строка действительна и falseнедействительна.
 
-Примеры
-"()"              =>  true
-")(()))"          =>  false
-"("               =>  false
-"(())((()())())"  =>  true */
-
-
-// function validParentheses(parenStr) {
-  
-//   return (parenStr[0]===')') ? false: ((parenStr.replaceAll('(','1,')).replaceAll(')','-1,').slice(0,-1).split(',').reduce ((accum,current) => accum+Number(current),0) === 0) ? true : false
-// }
-
-function validParentheses(parenStr) {
-
-parenStr = parenStr.split('')
-console.log(parenStr)
-parenStr = parenStr.map((elem,index) => {
-    if (elem==='(') {
-      parenStr.slice(parenStr.indexOf(')'),1)
-      console.log(parenStr)
-      parenStr.shift()
-      console.log(parenStr)
-    }
-   
-  })
-  return 
-}
-//console.log(validParentheses("())(()")) */
 
 /* ИИ заразил текст персонажем!!
 
@@ -726,4 +695,92 @@ function changeMe(moneyIn){
   }
 
 }
-console.log(changeMe('20p'))
+///console.log(changeMe('20p'))
+
+/* Таким образом легко соединить две строки вместе string1 + string2.
+Другой способ получить желаемый результат - этоstring1.concat(string2)
+ES6 представил еще один способ соединения строк. Ваша задача — выяснить, что это такое, 
+и написать функцию, которая будет складывать две строки вместе, между двумя строками должен быть пробел.
++, .concat()& .join()нельзя использовать в этом упражнении. Я также удалил некоторые другие методы,
+которые можно использовать для обмана!
+Если один из аргументов является числом, ваш код должен преобразовать его в строку. */
+
+function joinStrings(string1, string2){
+  return `${string1} ${string2}`
+}
+//console.log(joinStrings(134, 234))
+
+/* Создайте функцию, которая принимает строку и один символ и возвращает целое число, соответствующее количеству вхождений второго аргумента в первом.
+Если вхождений не найдено, должно быть возвращено число 0.
+("Hello", "o")  ==>  1
+("Hello", "l")  ==>  2
+("", "z")       ==>  0
+str_count("Hello", 'o'); // returns 1
+str_count("Hello", 'l'); // returns 2
+str_count("", 'z'); // returns 0 */
+
+function strCount(str, letter){  
+   return str = str.split(letter).length-1
+}
+//console.log(strCount("Hello", 'l'))
+
+//Создайте функцию, вызываемую shortcutдля удаления строчных гласных ( a, e, i, o, u) 
+/* //в заданной строке. 
+"hello"     -->  "hll"
+"codewars"  -->  "cdwrs"
+"goodbye"   -->  "gdby"
+"HELLO"     -->  "HELLO" */
+
+function shortcut (string) {
+  console.log(Array.from(string))
+  return (Array.from(string).filter(elem => (elem!=='a') && (elem!=='e') && (elem!=='i') && (elem!=='o')&&(elem!=='u'))).join('');
+}
+//console.log(shortcut("codewars"))
+
+//Напишите функцию RemoveExclamationMarks, которая удаляет все восклицательные
+//знаки из заданной строки.
+function removeExclamationMarks(s) {
+  return ((s.split('!')).join(''))
+}
+//console.log(removeExclamationMarks("Hello World!"))
+
+/*   ОПИСАНИЕ:
+Напишите функцию, которая принимает строку скобок и определяет, допустим ли порядок скобок. 
+Функция должна возвращать значение true, если строка действительна и falseнедействительна.
+Примеры
+"()"              =>  true
+")(()))"          =>  false
+"("               =>  false
+"(())((()())())"  =>  true */
+
+function validParentheses(parenStr) {
+  return ((parenStr.replaceAll('(','1,')).replaceAll(')','-1,').slice(0,-1).split(',').reduce ((accum,current) => {    
+    if (accum >= 0) return  accum+Number(current)   
+   },0) === 0) ? true : false
+}
+  //console.log(validParentheses(")("))
+
+  function disemvowel(str) {
+    return str.replace(/[aeiou]/gi, "");
+  }
+  //console.log(disemvowel("This website is for losers LoL!"))
+
+/* Дана строка s. Вы должны вернуть другую строку, чтобы символы s
+с четным и нечетным индексом были сгруппированы, а группы разделены пробелами (см. Пример ниже)
+Примечание:
+0 считается четным индексом.
+Все входные строки действительны без пробелов */
+
+function sortMyString(S) {
+  let str1=''
+  let str2=''
+  for (let i=0; i<S.length; i++){
+    (i%2!==0) ? str2 += S[i] : str1 += S[i]
+  }
+  return `${str1} ${str2}`;
+}
+//console.log(sortMyString("YCOLUE'VREER"))
+
+let str = "Hello world";
+let newStr = str.replaceAll("[aeiou]", "");
+console.log(newStr); // "Hll wrld"
