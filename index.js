@@ -781,6 +781,80 @@ function sortMyString(S) {
 }
 //console.log(sortMyString("YCOLUE'VREER"))
 
-let str = "Hello world";
-let newStr = str.replaceAll("[aeiou]", "");
-console.log(newStr); // "Hll wrld"
+const str = 'YCOLUE  VllEER';
+const newStr = str.replaceAll('l', 'L');
+//console.log(newStr);
+
+/* Обычно, когда вы что-то покупаете, вас спрашивают, верны ли номер вашей кредитной карты, номер телефона или ответ
+на ваш самый секретный вопрос. Однако, поскольку кто-то может заглянуть вам через плечо, вы не хотите,
+чтобы это отображалось на вашем экране. Вместо этого мы маскируем его.
+Ваша задача — написать функцию maskify, которая заменяет все символы, кроме последних четырех, на '#'. */
+
+
+const maskify = cc => {
+  return (cc.length > 4) ?  cc = cc.substr(cc.length-4,4).padStart(cc.length,'#') : cc
+}
+//console.log(maskify("1"));
+
+/* Учитывая смешанный массив числовых и строковых представлений целых чисел, сложите нестроковые целые числа 
+и вычтите сумму строковых целых чисел.
+Возврат как число. */
+
+const divCon = (x)=> {
+  return x.reduce((accum, current) => (typeof(current) === 'number') ? accum+=current : accum-=current, 0)
+}
+///console.log(divCon(['3', 6, 6, 0, '5', 8, 5, '6', 2,'0']));
+
+/* Задача
+Напишите функцию, которая принимает fightстроку, состоящую только из строчных букв, и возвращает, кто победил в битве. Когда побеждает левая сторона, возвращаются Left side wins!, когда выигрывает правая сторона, возвращаются Right side wins!, в остальных случаях возвращаются Let's fight again!.
+Левые боковые буквы и их сила:
+ w - 4
+ p - 3
+ b - 2
+ s - 1
+Правые боковые буквы и их сила:
+ m - 4
+ q - 3
+ d - 2
+ z - 1
+Остальные письма не имеют силы и являются только жертвами.
+Пример
+alphabetWar("z");        //=> Right side wins!
+alphabetWar("zdqmwpbs"); //=> Let's fight again!
+alphabetWar("zzzzs");    //=> Right side wins!
+alphabetWar("wwwwwwz");  //=> Left side wins! */
+
+// const alphabetWar = (fight) => {
+//   const valueArr = [['s', 'b', 'p', 'w'], ['z', 'd', 'q', 'm']];
+//   let result = Array.from(fight).reduce((accum, elem) =>{
+//     if (valueArr.findIndex(numArr =>numArr.includes(elem))) return accum+= ((valueArr[valueArr.findIndex(numArr =>numArr.includes(elem))]).indexOf(elem))+1
+//     else if (valueArr.findIndex(numArr =>numArr.includes(elem))< 0) return accum+=0
+//     else  return accum-= (valueArr[valueArr.findIndex(numArr =>numArr.includes(elem))].indexOf(elem))+1},0)
+//    return (result > 0) ? "Right side wins!" :(result < 0) ? "Left side wins!" : "Let's fight again!"
+// }
+
+// const alphabetWar2 = (fight) => {
+//   const valueArr = [['s', 'b', 'p', 'w'], ['z', 'd', 'q', 'm']];
+//   let result = Array.from(fight).reduce((accum, elem) => {
+//     if (valueArr.findIndex(numArr =>numArr.includes(elem)) < 0) {
+//       return accum+=0;
+//     }
+//       else if (valueArr.findIndex(numArr =>numArr.includes(elem)) > 0) {
+//       return  accum+= ((valueArr[valueArr.findIndex(numArr =>numArr.includes(elem))]).indexOf(elem))+1 
+//     } else {
+//       return accum-= ((valueArr[valueArr.findIndex(numArr =>numArr.includes(elem))]).indexOf(elem))+1 
+//     }
+//   }, 0);
+//   return (result > 0) ? "Right side wins!" :(result < 0) ? "Left side wins!" : "Let's fight again!"
+// }
+// console.log(alphabetWar("zwpjwsbkpwttzbopxa"));
+
+const alphabetWar = (fight) => {
+  const valueArr = [['s', 'b', 'p', 'w'], ['z', 'd', 'q', 'm']];
+  let result = Array.from(fight).reduce((accum, elem) =>
+    (valueArr.findIndex(numArr =>numArr.includes(elem)) < 0) ? accum+=0 :
+    (valueArr.findIndex(numArr =>numArr.includes(elem)) > 0) ? accum+= ((valueArr[valueArr.findIndex(numArr =>numArr.includes(elem))]).indexOf(elem))+1 
+    :accum-= ((valueArr[valueArr.findIndex(numArr =>numArr.includes(elem))]).indexOf(elem))+1 ,0);
+  return (result > 0) ? "Right side wins!" :(result < 0) ? "Left side wins!" : "Let's fight again!"
+}
+//console.log(alphabetWar("zwpjwsbkpwttzbopxa"));
