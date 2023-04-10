@@ -858,3 +858,44 @@ const alphabetWar = (fight) => {
   return (result > 0) ? "Right side wins!" :(result < 0) ? "Left side wins!" : "Let's fight again!"
 }
 //console.log(alphabetWar("zwpjwsbkpwttzbopxa"));
+
+/* Завершите решение так, чтобы оно возвращало true, если первый переданный 
+аргумент (строка) заканчивается вторым аргументом (тоже строкой).
+Примеры:
+solution('abc', 'bc') // returns true
+solution('abc', 'd') // returns false */
+
+
+/* const  solution = (str, ending) =>{
+return str.endsWith(ending)
+} */
+//console.log(solution('abcde', 'cde'));
+
+/* Учитывая строку слов (x), вам нужно вернуть массив слов, отсортированных в алфавитном порядке
+по последнему символу в каждом.
+Если два слова имеют одинаковую последнюю букву, возвращаемый ими массив должен отображать их в том порядке, 
+в котором они появились в данной строке.
+Все входы будут действительными. */
+
+const last1 =(x) => x.split(' ').sort((a,b) => a.slice(-1) > b.slice(-1))
+
+const last2 = ( $ ) => $.split(' ').sort((a,b)=> a.slice(-1) > b.slice(-1))
+
+const last =(x) => {
+  return x.split(' ').sort((a,b)=> (a.split('').slice(-1) >b.split('').slice(-1) ? 1:
+                                   (a.split('').slice(-1) < b.split('').slice(-1) ) ? -1: 0)) }
+
+// console.log(last1('man i need a taxi up to ubud'));
+// console.log(last2('man i need a taxi up to ubud'));
+
+/* Изограмма — это слово, в котором нет повторяющихся букв, последовательных или непоследовательных. 
+Реализуйте функцию, определяющую, является ли строка, содержащая только буквы, изограммой. Предположим, что пустая строка является изограммой. Игнорировать регистр букв.
+Пример: (Ввод --> Вывод)
+"Дерматоглифика" --> истина "аба" --> ложь 
+"moOse" --> ложь (игнорировать регистр букв) */
+
+const isIsogram = (str) => !str || /^(?!.*(.).*\1)[a-z]+$/i.test(str)
+
+  
+//console.log(isIsogram(""))
+
