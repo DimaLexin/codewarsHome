@@ -44,7 +44,7 @@ function solution(str){
 // Пример (ввод --> вывод): "The greatest victory is that which requires no battle" -->
 //  "battle no requires which that is victory greatest The"
 
-function reverseWords(str){
+function reverseWords1(str){
    
     return str
     .split(' ')
@@ -895,7 +895,66 @@ const last =(x) => {
 "moOse" --> ложь (игнорировать регистр букв) */
 
 const isIsogram = (str) => !str || /^(?!.*(.).*\1)[a-z]+$/i.test(str)
-
-  
+ 
 //console.log(isIsogram(""))
 
+// ОПИСАНИЕ:
+// Завершите функцию, которая принимает строковый параметр и переворачивает каждое слово в строке. 
+// Все пробелы в строке должны быть сохранены.
+// Примеры
+// "This is an example!" ==> "sihT si na !elpmaxe"
+// "double  spaces"      ==> "elbuod  secaps"
+
+
+const reverseWords = (str) =>str.split(' ').map(elem => Array.from(elem).reverse().join('')).join(' ')
+ 
+
+
+//console.log(reverseWords("This is an example!"))
+
+/* Ваша задача состоит в том, чтобы вернуть выходную строку, которая преобразует входную строку, s 
+заменив каждый символ s числом, представляющим количество раз, в котором этот символ встречается, 
+s и разделив каждое число символом sep(символами).
+
+Пример (s, sep --> Вывод)
+"hello world", "-" --> "1-1-3-3-2-1-1-2-1-3-1"
+"19999999"   , ":" --> "1:7:7:7:7:7:7:7"
+"^^^**$"     , "x" --> "3x3x3x2x2x1" */
+
+
+
+// function freqSeq(str, sep) {
+//   console.log(Array.from(str))
+//   let counter;
+//   let erw = Array.from(str).map((elem,index,_arr) => {
+//     console.log('повторение след  '+_arr.indexOf(elem,index+1))
+//     if (_arr.indexOf(elem,index+1) < 0)  {
+//       console.log(elem + ' не повторяется больше')
+//       elem = 1
+//       return elem
+//     }
+//     else {
+//       // console.log(elem + ' повторяется')
+//       // counter = 1
+//       // _arr.indexOf(elem,index+1)
+//       // while (index) {
+//       //   console.log(elem + ' мы тут')
+        
+//       // } 
+//       return elem
+//     }
+//   })
+// }
+function freqSeq(str, sep) {
+  console.log(Array.from(str))
+  Array.from(str).forEach ((elem) => {
+      let dublic = Array.from(str).reduce((acc,current,index)=> {
+        console.log('эталон  '+elem +'  текущий сравниваемвый  '+ current)
+        console.log('его  '+ index)
+        console.log('значение аккум   '+acc)
+      }, [])
+      console.log('результат' + dublic)
+  })
+
+}
+console.log(freqSeq('he', '-'))
