@@ -945,7 +945,7 @@ s и разделив каждое число символом sep(символ�
 //     }
 //   })
 // }
-function freqSeq(str, sep) {
+/* function freqSeq(str, sep) {
   console.log(Array.from(str))
   Array.from(str).forEach ((elem) => {
       let dublic = Array.from(str).reduce((acc,current,index)=> {
@@ -956,5 +956,58 @@ function freqSeq(str, sep) {
       console.log('результат' + dublic)
   })
 
+} */
+/* Ваша задача состоит в том, чтобы вернуть выходную строку, которая преобразует входную строку, s 
+заменив каждый символ s числом, представляющим количество раз, в котором этот символ встречается, 
+s и разделив каждое число символом sep(символами).
+
+Пример (s, sep --> Вывод)
+"hello world", "-" --> "1-1-3-3-2-1-1-2-1-3-1"
+"19999999"   , ":" --> "1:7:7:7:7:7:7:7"
+"^^^**$"     , "x" --> "3x3x3x2x2x1" */
+
+
+
+/* function freqSeq(str, sep) {
+    let dublicatIndex;
+    console.log(Array.from(str))
+      for (let i = 0; i < str.length; i++)  {
+           dublicatIndex = []
+           let dublicatLetters = Array.from(str).filter((elem,index) =>{
+            // console.log('результат  '+ typeof(str))
+            // if ((elem === str[i])) 
+            if ((elem === str[i]) && (isNaN(str[i]) || str[i] === ' '))
+              dublicatIndex.push(index)
+              return true
+            })
+            console.log(dublicatIndex)
+
+
+                for (let step = 0; step < dublicatIndex.length; step++) {
+                  str = str.replaceAll(str[dublicatIndex[step]], dublicatIndex.length)
+                }  
+                //console.log('результат строки  '+ str)    
+      }
+return str.replaceAll('',sep).slice(1,-1)
+} */
+
+/* function freqSeq(str, sep) {
+  const freq = [];
+  for (let i = 0; i < str.length; i++) {
+    let count = 0;
+    for (let j = 0; j < str.length; j++) {
+      if (str[i] === str[j]) {
+        count++;
+      }
+    }
+    freq.push(count);
+  }
+  return freq.join(sep);
+} */
+
+function freqSeq(str, sep) {
+  return str.split('').map((v, i, arr) => arr.filter(vi => vi === v).length).join(sep);
 }
-console.log(freqSeq('he', '-'))
+
+
+console.log(freqSeq('919','x'))
