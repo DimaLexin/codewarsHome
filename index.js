@@ -1005,9 +1005,122 @@ return str.replaceAll('',sep).slice(1,-1)
   return freq.join(sep);
 } */
 
-function freqSeq(str, sep) {
+/* function freqSeq(str, sep) {
   return str.split('').map((v, i, arr) => arr.filter(vi => vi === v).length).join(sep);
+} */
+
+function freqSeq(str, sep) {
+  return str.split('').map((v, i, arr) => {
+      if (v=== '9') return v=5
+  })
+
 }
 
+//console.log(freqSeq('919','x'))
 
-console.log(freqSeq('919','x'))
+/* Обычно у нас есть имя, отчество и фамилия, но в имени может быть более одного слова, например, в южно-индийском.
+Подобно этим типам имен, нам нужно инициализировать имена.
+См. образец ниже:
+initials('code wars') => returns C.Wars 
+initials('Barack Hussain obama') => returns B.H.Obama 
+Завершите функциональные инициалы.Имена во входных данных разделяются ровно одним пробелом
+без начальных и конечных пробелов. Имена всегда будут строчными, за исключением, возможно, их первой буквы. */
+
+
+const initials = (n) => {
+  console.log(n.trim().toUpperCase().split(' '))
+return n.trim().toUpperCase().split(' ').map((elem,index) => 
+{
+  if (index != n.trim().split(' ').length-1) {
+    console.log(elem.split('')[0])
+    elem = elem.split('')[0]
+    return elem
+  }else {
+    console.log(elem.split(''))
+    elem = elem.toLowerCase().split('').map((current, ind) => {
+        if (ind===0) return current.toUpperCase()
+        else return current
+    }).join('')
+
+    return elem
+  }
+   
+
+}).join('.')
+}
+
+// console.log(initials('Barack Hussain obama'))
+
+/* Возьмите строку и верните хеш со всеми значениями ascii символов в строке. 
+Возвращает nil, если строка пуста. Ключ — это символ, а значение — это значение символа в формате ascii. 
+Повторяющиеся символы следует игнорировать, а также неалфавитные символы.  {"A":65, "B":66, "a":97} */
+
+
+
+const charToAscii = (string) => {
+  if (string !="") {
+   // console.log('нас не наебали')
+   // console.log(string.replace(/(.)\1+/g, '$1').replace(/[^a-zA-Z]/g, '').replace(/(.)(.*)/, (_, c1, c2) => c1 + c2.replace(/ /g,'')))
+    string =string.replace(/(.)\1+/g, '$1').replace(/[^a-zA-Z]/g, '').replace(/(.)(.*)/, (_, c1, c2) => c1 + c2.replace(/ /g,''))
+    string = string.split('').map(elem => {
+      elem = elem+ ':'+elem.codePointAt(0)
+      console.log(elem)
+      return elem
+    })
+    //console.log(string)
+    return string
+  }
+  else {
+    //console.log('нас наебали')
+    return string= null;
+  }
+    // string.replaceAll( /(.)\1/g,'')
+  // console.log( string.replace(/(.)\1+/g, '$1'))
+}
+
+//console.log(charToAscii("a"))
+
+let point = {}
+point = {
+  x: 10,
+  y: 20,
+'two words': true,
+p : {
+  err : 99,
+  temp: 777}
+}
+
+console.log(point)
+console.log(point.x)
+console.log(point['x'])
+console.log(point['two words'])
+console.log(point.p.err)
+
+point.x = 15
+console.log(point.x)
+
+point.z = 9
+console.log(point)
+
+for (let field in point) {
+  console.log(`Поле ${field} равно  ${point[field]}`)
+  // console.log(field)
+  // console.log(point[field])
+}
+
+let person = {
+  name: 'Dima',
+  'second name': 'Ivanov'
+}
+
+let born = {
+  date: 22.05,
+  year: 1990,
+}
+let person2 = {}
+
+for (let key in person) {
+  person2[key] = person[key]
+}
+console.log(person2)
+Object.assign()
