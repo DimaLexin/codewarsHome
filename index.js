@@ -1090,20 +1090,20 @@ p : {
   temp: 777}
 }
 
-console.log(point)
+/* console.log(point)
 console.log(point.x)
 console.log(point['x'])
 console.log(point['two words'])
 console.log(point.p.err)
-
+ */
 point.x = 15
-console.log(point.x)
+//console.log(point.x)
 
 point.z = 9
-console.log(point)
+//console.log(point)
 
 for (let field in point) {
-  console.log(`Поле ${field} равно  ${point[field]}`)
+  //console.log(`Поле ${field} равно  ${point[field]}`)
   // console.log(field)
   // console.log(point[field])
 }
@@ -1122,5 +1122,32 @@ let person2 = {}
 for (let key in person) {
   person2[key] = person[key]
 }
-console.log(person2)
-Object.assign()
+//console.log(person2)
+//Object.assign()
+
+/* Вам даны два массива a1и a2строки. Каждая строка состоит из букв от aдо z. 
+Пусть x будет любая строка в первом массиве и y будет любой строкой во втором массиве.
+Find max(abs(length(x) − length(y)))
+Если a1и/или a2пусты, вернитесь -1  на каждом языке, кроме Haskell (F#), где вы вернетесь Nothing(Нет).
+Пример:
+a1 = ["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"]
+a2 = ["cccooommaaqqoxii", "gggqaffhhh", "tttoowwwmmww"]
+mxdiflg(a1, a2) --> 13
+Примечание Баша:
+ввод: 2 строки с подстроками, разделенными,
+вывод: число в виде строки */
+
+
+
+const mxdiflg = (a1, a2) =>{
+  if (a1=='' ||a2 =='') return -1 
+  else {
+      a1 = a1.sort((a,b)=>a.length-b.length)
+      a2 = a2.sort((a,b)=>a.length-b.length)
+          if ((a1[a1.length-1].length - a2[0].length) > (a2[a2.length-1].length - a1[0].length))
+          return (a1[a1.length-1].length - a2[0].length)
+          else return (a2[a2.length-1].length - a1[0].length)
+  }
+}
+console.log(mxdiflg(["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"], ["cccooommaaqqoxii", "gggqaffhhh", "tttoowwwmmww"]))
+
