@@ -1149,5 +1149,113 @@ const mxdiflg = (a1, a2) =>{
           else return (a2[a2.length-1].length - a1[0].length)
   }
 }
-console.log(mxdiflg(["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"], ["cccooommaaqqoxii", "gggqaffhhh", "tttoowwwmmww"]))
+//console.log(mxdiflg(["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"], ["cccooommaaqqoxii", "gggqaffhhh", "tttoowwwmmww"]))
 
+/* Упорядочить людей по возрасту с помощью функции стрелки
+Сортируйте и упорядочивайте людей по возрасту с помощью стрелочных функций
+Задача
+Ваша задача состоит в том, чтобы упорядочить список, содержащий объекты людей по возрасту, 
+используя новые стрелочные функции Javascript.
+Вход
+Входными данными будет допустимый массив с объектами People, содержащими Age и Name.
+Выход
+Вывод будет действительным отсортированным массивом с объектами People, отсортированными 
+по возрасту в порядке возрастания. */
+
+var OrderPeople = function(people){
+  return people.sort((a,b) =>a.age - b.age); //complete this function
+}
+
+// console.log(OrderPeople([ 
+// { age: 83, name: 'joel' },
+// { age: 46, name: 'roger' },
+// { age: 99, name: 'vinny' },
+// { age: 26, name: 'don' },
+// { age: 74, name: 'brendan' } 
+// ]))
+
+/* ОПИСАНИЕ:
+У вас есть приложение для группового чата, но кто онлайн!?
+Вы хотите показать своим пользователям, кто из их друзей онлайн и доступен для чата!
+Получив ввод массива объектов, содержащих имена пользователей, статус и время с момента последнего 
+действия (в минутах), создайте функцию для определения, кто есть online, offline и away.
+
+Если кто-то есть online, но они lastActivity были более 10 минут назад, их следует учитывать away.
+Входные данные имеют следующую структуру:
+Соответствующий вывод должен выглядеть следующим образом:
+{
+  online: ['David'],
+  offline: ['Lucy'],
+  away: ['Bob']
+}
+Если, например, нет пользователей, online вывод должен выглядеть следующим образом:
+{
+  offline: ['Lucy'],
+  away: ['Bob']
+}
+имя пользователя всегда будет string, статус всегда будет либо 'online'или 'offline'
+(перечисление UserStatus в C#), а lastActivity всегда будет number >= 0.
+Наконец, если у вас нет друзей в приложении чата, входными данными будет пустой массив []. 
+В этом случае вы должны вернуть пустой объект {}(пустой слов */
+
+  const whosOnline = (friends) => {
+    if (friends.length === 0) return {} 
+    else {
+          let checkOnline = {
+            online:[],
+            away:[],
+            offline:[]
+          }
+          friends.forEach ((elem,index)=>{
+            if ((elem.lastActivity <= 10) &&  (elem.status ==='online'))   
+              checkOnline.online.push(elem.username);
+            else if ((elem.lastActivity > 10) &&  (elem.status ==='online')) 
+                 checkOnline.away.push(elem.username)
+                 else checkOnline.offline.push(elem.username);;
+          } )
+              for (let key in checkOnline) {
+                if (checkOnline[key].length ===0) delete checkOnline[key]
+              }
+          return checkOnline
+
+    }
+  }
+  
+/* console.log(whosOnline([
+  {
+    username: 'Dima',
+    status: 'online',
+    lastActivity: 10
+  },
+  {
+    username: 'David',
+    status: 'online',
+    lastActivity: 10
+  }, 
+  /* {
+    username: 'Lucy', 
+    status: 'offline',
+    lastActivity: 22
+  },  */
+/*   {
+    username: 'Bob', 
+    status: 'online',
+    lastActivity: 104
+  }])) */
+
+
+/* Ваша задача — удалить из строки все повторяющиеся слова, оставив только одиночные (первые) слова.
+Пример:
+Вход:
+«альфа-бета-бета-гамма-гамма-дельта альфа-бета-бета-гамма-гамма-дельта»
+Выход:
+«альфа-бета-гамма-дельта» */
+ 
+
+
+const removeDuplicateWords = function(s) {
+  console.log (s)  
+return s.replace(/\b(\w+)\b\s+(?=.*\b\1\b)/gi, '').replace(/\s{2,}/g, ' ');
+}
+
+console.log(removeDuplicateWords('alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'))
