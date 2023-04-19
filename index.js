@@ -1254,8 +1254,85 @@ var OrderPeople = function(people){
 
 
 const removeDuplicateWords = function(s) {
-  console.log (s)  
-return s.replace(/\b(\w+)\b\s+(?=.*\b\1\b)/gi, '').replace(/\s{2,}/g, ' ');
+  let _arr =s.split(' ')
+    return  _arr.filter((elem,index) => index === _arr.indexOf(elem)).join(' ')
 }
 
-console.log(removeDuplicateWords('alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'))
+//console.log(removeDuplicateWords("hYjElphXgv hYjElphXgv OQwvUoafl rVzbmNKh OQwvUoafl YIgOtAwf OaRw NnQxn hYjElphXgv XCHDVlCMv XCHDVlCMv hYjElphXgv OaRw jMAjFMH rVzbmNKh YIgOtAwf OaRw OaRw OaRw fJYEe fJYEe YIgOtAwf hYjElphXgv hYjElphXgv rVzbmNKh EVRUmXTDZi XCHDVlCMv OQwvUoafl dvsf OQwvUoafl YVMfntK hYjElphXgv OaRw dvsf OaRw YIgOtAwf zqfEBr fJYEe EVRUmXTDZi dvsf hYjElphXgv MxjpWz OaRw OaRw rVzbmNKh hYjElphXgv YIgOtAwf OQwvUoafl EVRUmXTDZi fJYEe jMAjFMH fJYEe EVRUmXTDZi YIgOtAwf EVRUmXTDZi jMAjFMH EVRUmXTDZi zqfEBr OQwvUoafl dvsf NnQxn OQwvUoafl"))
+
+//var websites = ['codewars']
+// websites = 'codewars '.repeat(10).split(' ').slice(0,-1)
+websites = new Array(10)
+//console.log(websites )
+
+const squareFunc =(a) => Math.pow(a,2)
+//console.log(squareFunc(5) )
+
+/* Каждое животное приносит одно блюдо. Есть только одно правило: блюдо должно начинаться и заканчиваться теми же
+буквами, что и имя животного. Например, большая голубая цапля приносит чесночный наан,
+а синица приносит шоколадный торт.
+Напишите функцию feast, которая принимает имя животного и блюдо в качестве аргументов 
+и возвращает true или false, чтобы указать, разрешено ли животному принести блюдо на пир.
+Предположим, что beast и dish  всегда строчные строки, 
+и каждая из них состоит как минимум из двух букв. 
+beast и dish может содержать дефисы и пробелы, но они не будут отображаться в начале или конце строки. 
+Они не будут содержать цифр. */
+
+
+/// "1 sheep...2 sheep..."
+
+function feast(beast, dish) {
+return (beast[0]===dish[0]) && (beast[beast.length-1]===dish[dish.length-1]) ? true : false
+}
+
+//console.log(feast("great blue heron", "garlic naan"))
+
+var countSheep = function (num){
+  let str='';
+  for (let  count = 1 ; count <= num; count ++)
+  str+=`${count} sheep...`
+  return str
+}
+//console.log(countSheep(0))
+
+var cubeChecker = function(volume, side){
+  console.log (Math.pow(side,3))
+  //return (side > 0) && (Math.pow(side,3) === volume) ? true : false
+  return (side <= 0) || (Math.pow(side,3) !== volume) ? false  : true
+};
+//console.log(cubeChecker(56.3, 1))
+
+
+/*   let result =weight/Math.pow(height,2)
+  console.log(result)
+  if (18,5 < result && result<= 25,0) return -1
+
+  if (18.5 < result && result <= 25.0) */
+  
+  function bmi(weight, height) {
+    return weight/Math.pow(height,2)<= 18.5 ? "Underweight" : 
+          18.5 < weight/Math.pow(height,2)<= 25.0 ? "Normal" : 
+          25 < weight/Math.pow(height,2)<= 30 ? "Overweight" : "Obese"
+ }
+//console.log(bmi(80, 1.80))
+
+const flip=(d, a)=>{
+  if (d==='R') return a.sort((a,b)=> a-b)
+  else  return a.sort((a,b)=> b-a) 
+}
+//console.log((flip('R', [3, 2, 1, 2])))
+//console.log(flip('L', [1, 4, 5, 3, 5]))
+
+function toFreud(string) {
+  return (string.length !== 0) ? result = string.split(' ').map(elem => elem='sex').join(' '):""
+  }
+//console.log(toFreud(""))
+function positiveSum(arr) {
+  // return (arr.lenght !== 0) ? arr.reduce((ac,elem) => (elem>=0) ? ac+=elem : false,0):0
+  return (arr.lenght !== 0) ? arr.reduce((ac,elem) => {
+    if (elem >= 0) ac+=elem
+    return ac
+  },0):0
+ }
+
+ //console.log(positiveSum([-2,42]))
