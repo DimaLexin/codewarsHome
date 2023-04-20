@@ -1336,3 +1336,27 @@ function positiveSum(arr) {
  }
 
  //console.log(positiveSum([-2,42]))
+
+//  function makeNegative(num) {
+//   return (num===0) ? 0:(num > 0) ? num: Math.abs(num)
+// }
+
+const makeNegative = num => (num < 0) ? num:(num > 0) ? - num : num
+//console.log(makeNegative(-1))
+
+function opposite(number) {
+  return -number
+}
+//console.log(opposite(-1))
+
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    return Math.min(args)
+  }
+}
+const finder = new SmallestIntegerFinder();
+console.log(finder.findSmallestInt([34, -345, -1, 100]))
+
+
+// const array1 = [2, 3, 1, 6, 8 , 9 , 11];
+// console.log(Math.min(0,2));
