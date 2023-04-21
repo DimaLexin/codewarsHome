@@ -1351,12 +1351,38 @@ function opposite(number) {
 
 class SmallestIntegerFinder {
   findSmallestInt(args) {
-    return Math.min(args)
+    return Math.min(...args)
   }
 }
 const finder = new SmallestIntegerFinder();
-console.log(finder.findSmallestInt([34, -345, -1, 100]))
+//console.log(finder.findSmallestInt([34, -345, -1, 100]))
 
 
 // const array1 = [2, 3, 1, 6, 8 , 9 , 11];
 // console.log(Math.min(0,2));
+
+function century(year) {
+  return (String(year).length <= 2) ? 1 :  (String(year).slice(-2) == "00") ? +String(year).slice(0,-2): +String(year).slice(0,-2) + 1
+}
+//console.log(century(123456));
+
+function litres(time) {
+  return Math.floor(time * 0.5);
+}
+//console.log(litres(1.4));
+
+const abbrevName = (name) =>{
+return name.toUpperCase().split(' ')[0][0]+'.'+name.toUpperCase().split(' ')[1][0]
+}
+//console.log(abbrevName('patrick feeney'));
+
+function digitize(n) {
+  return n.split('').map(elem =>+elem).reverse()
+}
+//console.log(digitize(32687));
+
+const findNeedle = haystack => {
+  haystack = haystack.findIndex((elem) => elem==='needle')
+return `found the needle at position ${haystack}`;
+}
+//console.log(findNeedle(["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]));
