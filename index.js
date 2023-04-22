@@ -1174,74 +1174,6 @@ var OrderPeople = function(people){
 // { age: 74, name: 'brendan' } 
 // ]))
 
-/* ОПИСАНИЕ:
-У вас есть приложение для группового чата, но кто онлайн!?
-Вы хотите показать своим пользователям, кто из их друзей онлайн и доступен для чата!
-Получив ввод массива объектов, содержащих имена пользователей, статус и время с момента последнего 
-действия (в минутах), создайте функцию для определения, кто есть online, offline и away.
-
-Если кто-то есть online, но они lastActivity были более 10 минут назад, их следует учитывать away.
-Входные данные имеют следующую структуру:
-Соответствующий вывод должен выглядеть следующим образом:
-{
-  online: ['David'],
-  offline: ['Lucy'],
-  away: ['Bob']
-}
-Если, например, нет пользователей, online вывод должен выглядеть следующим образом:
-{
-  offline: ['Lucy'],
-  away: ['Bob']
-}
-имя пользователя всегда будет string, статус всегда будет либо 'online'или 'offline'
-(перечисление UserStatus в C#), а lastActivity всегда будет number >= 0.
-Наконец, если у вас нет друзей в приложении чата, входными данными будет пустой массив []. 
-В этом случае вы должны вернуть пустой объект {}(пустой слов */
-
-  const whosOnline = (friends) => {
-    if (friends.length === 0) return {} 
-    else {
-          let checkOnline = {
-            online:[],
-            away:[],
-            offline:[]
-          }
-          friends.forEach ((elem,index)=>{
-            if ((elem.lastActivity <= 10) &&  (elem.status ==='online'))   
-              checkOnline.online.push(elem.username);
-            else if ((elem.lastActivity > 10) &&  (elem.status ==='online')) 
-                 checkOnline.away.push(elem.username)
-                 else checkOnline.offline.push(elem.username);;
-          } )
-              for (let key in checkOnline) {
-                if (checkOnline[key].length ===0) delete checkOnline[key]
-              }
-          return checkOnline
-
-    }
-  }
-  
-/* console.log(whosOnline([
-  {
-    username: 'Dima',
-    status: 'online',
-    lastActivity: 10
-  },
-  {
-    username: 'David',
-    status: 'online',
-    lastActivity: 10
-  }, 
-  /* {
-    username: 'Lucy', 
-    status: 'offline',
-    lastActivity: 22
-  },  */
-/*   {
-    username: 'Bob', 
-    status: 'online',
-    lastActivity: 104
-  }])) */
 
 
 /* Ваша задача — удалить из строки все повторяющиеся слова, оставив только одиночные (первые) слова.
@@ -1386,3 +1318,128 @@ const findNeedle = haystack => {
 return `found the needle at position ${haystack}`;
 }
 //console.log(findNeedle(["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]));
+
+const strick ='1,2,3,4,5'
+let strick1 = strick.replaceAll(',','+')
+//console.log(eval(strick1))
+
+//'use strict';
+
+// первый и второй элементы не нужны
+let tt = "Юлий Цезарь Император Рима"
+//console.log(Array.isArray(tt.split(' '))); // Император
+let [,,,title] = "Юлий Цезарь Император Рима".split(" ");
+ 
+
+/* console.log(typeof(title));
+console.log(title); // Император */
+
+let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+//console.log(rest)
+
+/* Тролли атакуют ваш раздел комментариев!
+Обычный способ справиться с этой ситуацией — удалить все гласные из комментариев троллей, нейтрализуя угрозу.
+Ваша задача — написать функцию, которая принимает строку и возвращает новую строку, в которой удалены все гласные.
+Например, строка «Этот сайт для неудачников, LOL!» станет «Ths wbst s fr lsrs LL!». */
+
+function disemvowel(str) {
+  const vowels =['a', 'e', 'i', 'o', 'u']
+/*   vowels.forEach(elem=> {
+    str= str.replaceAll(elem,"")
+  })
+  return str */
+  return Array.from(str).filter(el =>!vowels.includes(el.toLowerCase())).join('')
+}
+
+//console.log(disemvowel("This website is for losers LOL!"))
+
+/* ОПИСАНИЕ:
+У вас есть приложение для группового чата, но кто онлайн!?
+Вы хотите показать своим пользователям, кто из их друзей онлайн и доступен для чата!
+Получив ввод массива объектов, содержащих имена пользователей, статус и время с момента последнего 
+действия (в минутах), создайте функцию для определения, кто есть online, offline и away.
+
+Если кто-то есть online, но они lastActivity были более 10 минут назад, их следует учитывать away.
+Входные данные имеют следующую структуру:
+Соответствующий вывод должен выглядеть следующим образом:
+{
+  online: ['David'],
+  offline: ['Lucy'],
+  away: ['Bob']
+}
+Если, например, нет пользователей, online вывод должен выглядеть следующим образом:
+{
+  offline: ['Lucy'],
+  away: ['Bob']
+}
+имя пользователя всегда будет string, статус всегда будет либо 'online'или 'offline'
+(перечисление UserStatus в C#), а lastActivity всегда будет number >= 0.
+Наконец, если у вас нет друзей в приложении чата, входными данными будет пустой массив []. 
+В этом случае вы должны вернуть пустой объект {}(пустой слов */
+
+/*   const whosOnline = (friends) => {
+    StatusObj = {}
+    StatusObj = friends.filter(el => {
+      if (el.status === 'online') {
+          StatusObj.online.push(el.username)
+          console.log(StatusObj)
+      }
+    })
+    
+    
+  }
+  
+console.log(whosOnline([
+  {
+    username: 'Dima',
+    status: 'online',
+    lastActivity: 10
+  },
+  {
+    username: 'David',
+    status: 'online',
+    lastActivity: 10
+  }, 
+  {
+    username: 'Lucy', 
+    status: 'offline',
+    lastActivity: 22
+  }, 
+   {
+    username: 'Bob', 
+    status: 'online',
+    lastActivity: 104
+  }])) */
+
+/* Вам дан массив значений.
+Суммируйте каждое числовое значение в массиве и любых вложенных массивах (до любой глубины).
+Игнорировать все другие типы значений. */
+const arraySum = arr => {
+return arr.flat().reduce ((accum,elem)=>{
+  if (typeof(elem)==='number') {
+    return accum+elem
+  }
+    return accum
+},0)
+}
+//console.log(arraySum([[1, 2], [3, 'test'], [4, 5], [6, [7, 8, 9]], [], 0]))
+
+/* Питер живет на холме и всегда стонет по дороге домой. «Это всегда только вверх. Я никогда не отдыхаю». 
+Но вы почти уверены, что по крайней мере в одной точке высота Питера не увеличивается, а падает. 
+Чтобы заполучить его, вы используете гнусный план: прикрепляете к его рюкзаку альтиметр и считываете 
+данные с его обратного пути на следующий день. 
+isMonotone([])     == True
+isMonotone([1,2,3]) == true
+isMonotone([1,1,2]) == true
+isMonotone([1])     == true
+isMonotone([3,2,1]) == false
+isMonotone([3,2,2]) == false */
+
+var isMonotone = function(arr){
+  let sortArr =arr.sort((a,b) =>a-b)
+  console.log(sortArr)
+
+  return arr.every(i,j,sortArr); 
+}
+
+console.log(isMonotone([1,2,3]))
