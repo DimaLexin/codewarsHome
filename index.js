@@ -1377,19 +1377,28 @@ function disemvowel(str) {
 Наконец, если у вас нет друзей в приложении чата, входными данными будет пустой массив []. 
 В этом случае вы должны вернуть пустой объект {}(пустой слов */
 
-/*   const whosOnline = (friends) => {
+ /*  const whosOnline = (friends) => {
     StatusObj = {}
-    StatusObj = friends.filter(el => {
-      if (el.status === 'online') {
-          StatusObj.online.push(el.username)
-          console.log(StatusObj)
-      }
-    })
-    
-    
-  }
+
   
-console.log(whosOnline([
+    if (!friends.length) {
+      return StatusObj
+    } else {
+      StatusObj = friends.filter(elem =>{
+          if (elem === 'online') {
+
+          } else {
+            // StatusObj.offline = StatusObj.offline || []
+            elem.push(elem.username)
+            return elem
+            }  
+      })
+    }
+
+  return   StatusObj
+  } */
+
+/*  console.log(whosOnline([
   {
     username: 'Dima',
     status: 'online',
@@ -1405,12 +1414,17 @@ console.log(whosOnline([
     status: 'offline',
     lastActivity: 22
   }, 
+  {
+    username: 'Max', 
+    status: 'offline',
+    lastActivity: 22
+  },
    {
     username: 'Bob', 
     status: 'online',
     lastActivity: 104
-  }])) */
-
+  } ]))  
+ */
 /* Вам дан массив значений.
 Суммируйте каждое числовое значение в массиве и любых вложенных массивах (до любой глубины).
 Игнорировать все другие типы значений. */
@@ -1436,10 +1450,77 @@ isMonotone([3,2,1]) == false
 isMonotone([3,2,2]) == false */
 
 var isMonotone = function(arr){
-  let sortArr =arr.sort((a,b) =>a-b)
-  console.log(sortArr)
-
-  return arr.every(i,j,sortArr); 
+  return arr.every((el,i)=> i === 0 || arr[i-1] <= arr[i] ); 
 }
 
-console.log(isMonotone([1,2,3]))
+// console.log(isMonotone([1,2,3]))
+
+
+//console.log(isMonotone([3,2,1]))
+
+
+
+
+
+
+const num1 = [1, 2, 3];
+const num2 = [4, 5, 6];
+const Sumnum = [0,...num1,...num2,7];
+//console.log(Sumnum)
+
+function bigSum (a,b,...arg) {
+  let res =a + b;
+  for (let i=0; i<arg.length; i++){
+    res+=arg[i]
+  }
+  return res
+}
+/* console.log(bigSum (1,2))
+console.log(bigSum (1,2,3,4)) */
+
+function largestPairSum (numbers) {
+  numbers.sort((a,b)=> b-a)
+
+  return numbers[0]+numbers[1]
+}
+//console.log(largestPairSum([-100,-29,-24,-19,19]))
+
+/* Овцы возвращаются группами каждый день -> вам будут предоставлены два массива с этими числами 
+(один для пятницы и один для ночи субботы). Записи всегда являются положительными целыми числами, выше нуля.
+Фермер знает общее количество овец, это третий параметр. Вам необходимо вернуть количество 
+потерянных (не возвращенных на ферму) овец после окончательного подсчета овец в субботу.
+Пример 1: Ввод: {1, 2}, {3, 4}, 15 --> Вывод: 5
+Пример 2: Ввод: {3, 1, 2}, {4, 5}, 21 --> Вывод: 6
+Удачи! :-) */
+
+function lostSheep(friday,saturday,total){
+  //return total - friday.reduce((accum, elem) => accum + elem,0)  - saturday.reduce((accum, elem) => accum + elem,0)
+  return total - [...friday,...saturday].reduce((a,b)=>a+b,0)
+}
+//console.log(lostSheep([],[],15))
+//console.log(lostSheep([1, 2],[3,4],15))
+
+/* Вам дан несортированный массив, содержащий все целые числа от 0 до 100 включительно. 
+Однако отсутствует одна цифра. Напишите функцию, которая находит и возвращает это число.
+Каковы временные и пространственные сложности вашего решения? */
+
+/* function missingNo(nums) {
+  let numsSort = nums.sort((a,b) => a-b)
+  numsSort = numsSort.filter((el,index) => el !== numsSort[index+1]-1 && numsSort[index+1]!==undefined)
+  return  (numsSort.length) ? numsSort[0]+1 : 100
+  //return 
+
+} */
+
+
+function missingNo(nums) {
+return nums.find((el,index)=>!nums.includes(index))
+}
+//console.log(missingNo([0,1,2,4]))
+//console.log(missingNo([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100]))// 26)
+//console.log(missingNo([15, 60, 61, 95, 46, 38, 68, 11, 47, 45, 27, 23, 3, 16, 8, 81, 76, 63, 62, 57, 59, 22, 55, 78, 28, 54, 74, 39, 79, 65, 48, 82, 17, 2, 98, 90, 18, 9, 56, 34, 7, 75, 10, 93, 35, 5, 73, 77, 85, 71, 13, 91, 83, 70, 89, 4, 84, 14, 52, 99, 53, 33, 49, 42, 40, 58, 30, 36, 67, 72, 41, 26, 87, 97, 25, 29, 50, 64, 21, 88, 66, 24, 94, 51, 1, 100, 0, 96, 69, 12, 92, 31, 37, 6, 86, 32, 19, 44, 20, 43]))
+
+function incrementer(nums) { 
+  return nums = nums.map((el,i) => (el+i+1 < 9) ? el+i+1 : (el+i+1)%10)
+}
+//console.log(incrementer([4, 6, 9, 1, 3]))
