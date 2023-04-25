@@ -1524,3 +1524,199 @@ function incrementer(nums) {
   return nums = nums.map((el,i) => (el+i+1 < 9) ? el+i+1 : (el+i+1)%10)
 }
 //console.log(incrementer([4, 6, 9, 1, 3]))
+
+
+/* Создайте функцию strCount (принимает объект в качестве аргумента), которая будет подсчитывать 
+все строковые значения внутри объекта. Например:
+strCount({
+  first: "1",
+  second: "2",
+  third: false,
+  fourth: ["anytime",2,3,4],
+  fifth:  null
+  })
+  //returns 3 */
+
+/*   function strCount(obj){
+    let count =0
+    for (let field in obj) {
+      console.log(obj[field] + " c типом данных " + typeof(obj[field]))
+      if (typeof(obj[field])==="string") {
+        count++
+        console.log('cчетчик изменен ' + count)
+      } else if (typeof(obj[field]) === "object") {
+            for (let subfield in obj[field]) {
+              console.log('анализ объектов '+subfield+'  ' +obj[field][subfield] + " c типом данных " + typeof(obj[field][subfield]))
+              if (typeof(obj[field][subfield])==="string") {
+                count++
+                console.log('cчетчик изменен ' + count)
+                break
+              }
+              
+            }
+      }
+    }
+    return count
+    } */
+
+
+    function strCount(obj) {
+      let count = 0;
+      for (let key in obj) {
+        console.log('если  '+obj[key])
+        if (typeof obj[key] === 'string') {
+          count++;
+        } else if (typeof obj[key] === 'object') {
+          console.log('если объект  '+obj[key])
+          count += strCount(obj[key]);
+        }
+      }
+    
+      return count;
+    }
+  
+/*   console.log(strCount({
+    first: "1",
+    second: "2",
+    third: false,
+    fourth: ["anytime",2,3,4],
+    fifth:  null
+    })) */
+
+    var greet = function(name) {
+      //name.toLowerCase()
+      return `Hello `+ name[0].toUpperCase() + name.toLowerCase().slice(1,name.length)+'!'
+    };
+
+    //console.log(greet('NAME'))
+
+/* Вам будет передан массив объектов ( list) — вы должны отсортировать их в порядке убывания 
+на основе значения указанного свойства ( sortBy).
+Пример
+При сортировке по "a", это: 
+[
+  {"a": 1, "b": 3},
+  {"a": 3, "b": 2},
+  {"a": 2, "b": 40},
+  {"a": 4, "b": 12}
+]должен вернуться:
+
+[
+  {"a": 4, "b": 12},
+  {"a": 3, "b": 2},
+  {"a": 2, "b": 40},
+  {"a": 1, "b": 3}
+] */
+/* 
+function sortList (sortBy, list) {
+
+  return list.sort((a,b)=>b-a[sortBy])
+}
+
+console.log(sortList("a",
+{"a": 1, "b": 3},
+{"a": 3, "b": 2},
+{"a": 2, "b": 40},
+{"a": 4, "b": 12})) */
+
+/* Реализуйте функцию , multiples(m, n)которая возвращает массив первых m кратных действительного числа n.
+Предположим, что mэто положительное целое число.
+Бывший.
+multiples(3, 5.0)
+должен вернуться
+[5.0, 10.0, 15.0] */
+
+function multiples(m, n){
+  let arr = []
+  for (let i=1; i<=m;i++) {
+    arr.push(n*i)
+  }
+  return arr
+}
+//console.log(multiples(3,5))
+
+function sortGiftCode(code){
+  return code.split('').sort((a,b)=>a.codePointAt()-b.codePointAt()).join('')
+}
+
+//console.log(sortGiftCode("pqksuvy"))
+
+function discoverOriginalPrice(discountedPrice, salePercentage){
+  return +((discountedPrice/(100 - salePercentage)* 100).toFixed(2))
+}
+//console.log(discoverOriginalPrice(75.75,25));
+
+function calculate(num1, operation, num2) {
+ switch (operation) {
+  case "-" : return num1 - num2
+  case "+" : return num1 + num2
+  case "*" : return num1 * num2
+  case "/" : return num2 === 0 ? null: num1 / num2
+  default : return null
+ }
+
+ }
+ //console.log(calculate(6,"-", 1.5));
+
+/*  function trouble(x, t){
+  return x.findIndex((_,index)=> {
+    if  ((x[index+1] + x[index]) === t ) {
+      return true
+    } 
+  } )
+ } */
+
+ function trouble(x, t){
+    for (let index = 0; index < x.length;index++) { 
+      if  ((x[index+1] + x[index]) === t )  {
+        x.splice(index+1,1) 
+        index--
+      }   
+    }
+    return x
+ }
+ //console.log(trouble([4, 1, 1, 1, 4],2))  //[4, 1, 1, 4]  [4, 1, 4])
+
+ function getMissingElement(superImportantArray){
+  for (let i = 0 ; i < superImportantArray.length; i++ ) {
+    if (!superImportantArray.includes(i)) {
+      return i
+    } return i
+  }
+}
+//console.log(getMissingElement( [0,5,1,3,2,9,7,6,4]))
+
+/* function evenNumbers(array, number) {
+   let outputArr =array.filter(el => el%2===0)
+   return outputArr.reverse().splice(0,number) 
+} */
+//console.log((evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2))) //[-8, 26]
+
+function removeSmallest(numbers) {
+  let newList =[ ...numbers]
+  if (numbers.length >0) {
+    newList.splice(newList.indexOf(Math.min(...newList)), 1);
+     return newList 
+  } 
+  return [];
+}
+//console.log(removeSmallest([5, 3, 2, 1, 4]))
+/* let i = 3
+let array1 = [1, 2, 3, 4, 5];
+array1.splice(-3);
+console.log(array1) */
+
+function filterHomogenous(arrays) {
+  console.log(arrays)
+  arrays.forEach((el,index)=> {
+    if (el.lenght === 0) {
+      arrays.splice(index,1)
+    }
+
+  })
+  console.log(arrays)
+}
+
+
+
+console.log(filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3]]))
