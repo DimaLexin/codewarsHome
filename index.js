@@ -328,11 +328,11 @@ function explode(s) {
 
 const numbers = [0,1,2,3,4,5];
 
-numbers.sort((a,b)=> { 
+/* numbers.sort((a,b)=> { 
 
   if (a>b) return -1; 
    if (a===b) return 0; 
-    if (a<b) return 1;  });
+    if (a<b) return 1;  }); */
 
     
 // console.log(numbers);
@@ -423,10 +423,10 @@ function getCount(str) {
 //Первый аргумент — это массив numbers, а второй — divisor.
 // Пример (Ввод1, Ввод2 --> Выход)
 // [1, 2, 3, 4, 5, 6], 2 --> [2, 4, 6]
-function divisibleBy(numbers, divisor){
+/* function divisibleBy(numbers, divisor){
   return numbers = numbers.filter(elem => elem%divisor===0)
 }
-
+ */
 //console.log(divisibleBy([1, 2, 3, 4, 5, 6],2))
 
 //Рассмотрим массив/список овец, где некоторые овцы могут отсутствовать на своем месте. Нам нужна функция, которая подсчитывает количество овец, присутствующих в массиве (true означает наличие).
@@ -1478,7 +1478,7 @@ function bigSum (a,b,...arg) {
 /* console.log(bigSum (1,2))
 console.log(bigSum (1,2,3,4)) */
 
-function largestPairSum (numbers) {
+/* function largestPairSum (numbers) {
   numbers.sort((a,b)=> b-a)
 
   return numbers[0]+numbers[1]
@@ -1692,31 +1692,74 @@ function calculate(num1, operation, num2) {
 } */
 //console.log((evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2))) //[-8, 26]
 
-function removeSmallest(numbers) {
+/* function removeSmallest(numbers) {
   let newList =[ ...numbers]
   if (numbers.length >0) {
     newList.splice(newList.indexOf(Math.min(...newList)), 1);
      return newList 
   } 
   return [];
-}
+} */
 //console.log(removeSmallest([5, 3, 2, 1, 4]))
 /* let i = 3
 let array1 = [1, 2, 3, 4, 5];
 array1.splice(-3);
 console.log(array1) */
 
+
+/* 
+Учитывая двумерный массив, вернуть новый массив, который переносит только те массивы из оригинала, 
+которые не были пустыми и элементы которых все одного типа (т.е. однородные). 
+Для простоты массивы внутри массива будут содержать только символы и целые числа.
+Пример:
+Учитывая [[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3]], ваша функция должна возвращать [[1, 5, 4], ['б']].
+Приложение:
+Пожалуйста, имейте в виду, что для этого ката мы предполагаем, что пустые массивы неоднородны.
+Результирующие массивы должны быть в том порядке, в котором они были изначально, и их значения не должны изменяться.
+Неявное приведение типов не допускается. Подмассив [1, '2'] будет считаться недопустимым и должен быть отфильтрован. */
+
+/* function filterHomogenous(arrays) {
+  return arrays
+      .filter ((el,index)=> {
+          if (el.length !==0) {
+              let flag = true;
+              for (let j = 0; j < el.length; j++) {
+                    if (typeof(el[0]) !== typeof(el[j])) {
+                        flag =  false 
+                        break
+                    }                                
+              } 
+          return  flag      
+          } 
+          return  false
+      } 
+        ) 
+} */
+
 function filterHomogenous(arrays) {
-  console.log(arrays)
-  arrays.forEach((el,index)=> {
-    if (el.lenght === 0) {
-      arrays.splice(index,1)
-    }
-
-  })
-  console.log(arrays)
+    return arrays.filter(el =>el.length!== 0 && el.every(e=> typeof(e)===typeof(el[0])))
 }
+//console.log(filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3]]))
+//console.log(filterHomogenous([[123, 234, 432], ['', 'abc'], [''], ['', 1], ['', '1'], []]))
 
+const number = function (...arg) {
+  return Array.from([...arg]).every(el =>typeof(el)==="number")
+  }
 
+//console.log(number(1, "a", 3))
 
-console.log(filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3]]))
+function vaporcode(string) {
+  return string.toUpperCase().replaceAll(' ','').split('').join('  ')
+}
+//console.log(vaporcode("Why isnt my code working"))
+
+function solve(arr){
+  let solveArr = [];
+  arr = arr.sort((a,b) => b-a)
+    while (arr.length) {
+      solveArr.push(arr.shift())
+      solveArr.push(arr.pop())
+    }  
+    return  solveArr.filter(el=>el!==undefined)
+};
+//console.log(solve([15,11,10,7,12])) //,[15,7,12,10,11,]))
