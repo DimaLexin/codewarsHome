@@ -1763,3 +1763,90 @@ function solve(arr){
     return  solveArr.filter(el=>el!==undefined)
 };
 //console.log(solve([15,11,10,7,12])) //,[15,7,12,10,11,]))
+
+const  alternateCase = (s) => s.split('').map(el => (el === el.toUpperCase()) ? el.toLowerCase() : el.toUpperCase()).join('')
+//console.log(alternateCase('Hello'))
+
+/* Для заданной последовательности целых чисел вернуть сумму всех целых чисел с четным индексом 
+(нечетный индекс в COBOL), умноженную на целое число с последним индексом.
+Индексы в последовательности начинаются с 0.
+Если последовательность пуста, вы должны вернуть 0. */
+
+function evenLast(numbers) {
+  if (numbers.length !==0)  {
+    return numbers[numbers.length-1] * numbers.filter((el,index) => (index%2=== 0) || (index === 0) ).reduce((ac,elem) => ac + elem ,0)
+  }
+  return 0
+}
+//console.log(evenLast([2, 3, 4, 5]))
+
+/* Это достаточно просто - вам будет предоставлен массив. Значения в массиве будут либо числами, либо строками, 
+либо их сочетанием. Вы не получите ни пустой массив, ни разреженный.
+Ваша задача состоит в том, чтобы вернуть один массив, в котором сначала числа отсортированы в порядке возрастания
+, а затем строки, отсортированные в алфавитном порядке. Значения должны сохранять свой исходный тип.
+Обратите внимание, что числа, записанные в виде строк, являются строками и должны быть отсортированы вместе с
+ другими строками. */
+
+ function dbSort(a){
+   const numArr = a.filter(el=> typeof(el)==='number').sort((a,b)=>a-b)
+  const strArr = a.filter(el=> typeof(el)==='string').sort((a,b)=>a.localeCompare(b))
+  return [...numArr, ...strArr]
+  }
+
+  //console.log(dbSort(["aa","abb",'aav']))
+  const str1 = "bpple2";
+  const str2 = "apple10";
+  //console.log(str1.localeCompare(str2, undefined, { numeric: true }))
+
+ /*  Возьмите 2 строки s1и s2включите только буквы от aдо z. Возвращает новую отсортированную строку, 
+  максимально длинную, содержащую различные буквы (каждая из которых взята только один раз) из s1 или s2.
+  a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy" */
+
+
+
+const longest = function(s1, s2) {
+    return [...s1,...s2].filter((el,index,_arr)=> index ===_arr.indexOf(el)).sort((a,b)=> a.localeCompare(b)).join('')
+}
+//console.log(longest("aretheyhere", "yestheyarehere")) //"aehrsty")
+
+function f(n){
+  if ((n > 0) && (n%2===0)) {
+    let numArr = []
+      for (let i = 1; i <= n; i++ ) {
+        numArr.push(i)
+      }
+  return numArr.reduce((ac,el) => ac+el,0)
+  }
+  return false
+};
+//console.log(f(100)) //5050
+
+function reverseLetter(str) {
+//console.log('a'.charCodeAt())
+  //return Array.from(str).filter(el => (el.charCodeAt() > 48 || el.charCodeAt() < 57) && (el.charCodeAt() > 65 || el.charCodeAt() < 90) && (el.charCodeAt() > 97 || el.charCodeAt() < 122));
+  return Array.from(str).filter(el => (el.charCodeAt() <= 90 && el.charCodeAt() >= 65) || (el.charCodeAt() <= 122 && el.charCodeAt() >= 97)).reverse().join('')
+  
+}
+
+//console.log(reverseLetter("krish21an")) //5050
+
+function minValue(values){
+  return +(values.filter((el,index,_arr)=> index === _arr.indexOf(el)).sort((a,b)=>a-b).join(''))
+}
+//console.log(minValue([1, 3, 1]))
+
+function sortByLength (array) {
+  return array.sort((a,b)=>a.length-b.length)
+};
+//console.log(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]))
+
+function reverseNumber(n) {
+  while (n%10===0) {
+      n=n/10
+  }
+  return n
+  //return n < 0 ? Array.from(n).reverse() : false
+}
+console.log(reverseNumber(-100))
