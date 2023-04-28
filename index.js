@@ -1843,10 +1843,28 @@ function sortByLength (array) {
 //console.log(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]))
 
 function reverseNumber(n) {
-  while (n%10===0) {
-      n=n/10
+  if (n%10===0) {
+    n = Number(n.toString().replace(/0+$/, ''));
   }
-  return n
-  //return n < 0 ? Array.from(n).reverse() : false
+  return (n >= 0) ? +Array.from(String(n)).reverse().join(''): -+Array.from(String(n)).reverse().join('').slice(0,-1)
 }
-console.log(reverseNumber(-100))
+ //console.log(reverseNumber(-1022))
+// let n = "555000000"
+
+// console.log(parseFloat(n))
+
+function findLongest(array){
+  const maxlength = String(Math.max(...array)).length
+  return  +array.map(elem=>String(elem)).find(el=>el.length ===maxlength)
+}
+//console.log(findLongest([168630, 430272 ]))
+
+function sumDigits(number) {
+  return Array.from(String(Math.abs(number)),Number).re
+}
+//console.log(sumDigits(-753915))
+
+function inAscOrder(arr) {
+  return arr.every((el,i)=>arr[i+1] >= arr[i])
+}
+console.log(inAscOrder([1, 2, 3,4]))
