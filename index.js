@@ -1865,6 +1865,134 @@ function sumDigits(number) {
 //console.log(sumDigits(-753915))
 
 function inAscOrder(arr) {
-  return arr.every((el,i)=>arr[i+1] >= arr[i])
+  return arr.every((el,i)=> {
+    return arr[i-1] <= arr[i] || i=== 0
+  })
 }
-console.log(inAscOrder([1, 2, 3,4]))
+//console.log(inAscOrder([1, 6, 10, 18, 2, 4, 20]))
+
+let awert ='werty'
+// console.log(awert.codePointAt(0)); 
+// console.log(awert[0].charCodeAt()); 
+
+const strCount1 = {
+      first :  "1",
+      second : "2",
+      third :  false,
+      fourth : ["anytime",2,3,4]  
+}
+
+
+// let parts = Object.entries(strCount1);
+// //console.log(Array.isArray(parts))
+// for (let i = 0; i < parts.length; i++) {
+//   let [key, value] = parts[i];
+//   key = key + "  new name"
+//   //console.log(parts[i])
+//   // делать что-то с key и value
+// }
+// console.log(strCount1)
+// console.log(parts)
+
+// let keys = Object.keys(strCount1);
+// console.log(keys)
+// for (let i = 0; i < keys.length; i++) {
+//   let key = keys[i];
+//   console.log(key)
+//   // делать что-то с object[key]
+// }
+
+// Вы хотите показать своим пользователям, кто из их друзей онлайн и доступен для чата!
+// Получив ввод массива объектов, содержащих имена пользователей, статус и время с момента последнего
+// действия (в минутах), создайте функцию для определения, кто есть online, offline и away.
+// Если кто-то есть online, но они lastActivity были более 10 минут назад, их следует учитывать away.
+// Входные данные имеют следующую структуру:
+// [{
+//   username: 'David',
+//   status: 'online',
+//   lastActivity: 10
+// }, {
+//   username: 'Lucy', 
+//   status: 'offline',
+//   lastActivity: 22
+// }, {
+//   username: 'Bob', 
+//   status: 'online',
+//   lastActivity: 104
+// }]
+// Соответствующий вывод должен выглядеть следующим образом:
+// {
+//   online: ['David'],
+//   offline: ['Lucy'],
+//   away: ['Bob']
+// }
+// Если, например, нет пользователей, onlineвывод должен выглядеть следующим образом:
+// {
+//   offline: ['Lucy'],
+//   away: ['Bob']
+// }
+// имя пользователя всегда будет string, статус всегда будет либо 'online'или 'offline
+// перечисление UserStatus в C#), а lastActivity всегда будет number >= 0.
+// Наконец, если у вас нет друзей в приложении чата, входными данными будет пустой массив [].
+// В этом случае вы должны вернуть пустой объект {}(пустой словарь в C#).
+
+
+const whosOnline = (friends) => {
+  if (friends.length > 0) {
+      const friendsOnline ={}
+      friends.forEach(element => {
+          if (element.status==='online' && element.lastActivity <= 10) {
+              friendsOnline.online = friendsOnline.online || []
+              friendsOnline.online.push(element.username)
+
+          } else if (element.status==='offline') {
+                    friendsOnline.offline = friendsOnline.offline || []
+                    friendsOnline.offline.push(element.username)
+                } else {
+                      friendsOnline.away = friendsOnline.away || [] 
+                      friendsOnline.away.push(element.username)
+                  }
+      });
+      return friendsOnline
+  } 
+  return []
+}
+
+// const whosOnline = (friends) => {
+//   const onlineFriends = friends.filter(friend => friend.status === 'online' && friend.lastActivity < 10).map(friend => friend.username);
+//   const awayFriends = friends.filter(friend => friend.status === 'online' && friend.lastActivity >= 10).map(friend => friend.username);
+//   const offlineFriends = friends.filter(friend => friend.status === 'offline').map(friend => friend.username);
+  
+//   const result = {};
+//   if (onlineFriends.length > 0) {
+//     result.online = onlineFriends;
+//   }
+//   if (awayFriends.length > 0) {
+//     result.away = awayFriends;
+//   }
+//   if (offlineFriends.length > 0) {
+//     result.offline = offlineFriends;
+//   }
+  
+//   return result;
+// };
+console.log(whosOnline([
+{
+  username: 'David',
+  status: 'offline',
+  lastActivity: 1
+}, 
+{
+  username: 'Dima',
+  status: 'online',
+  lastActivity: 1
+}, 
+{
+  username: 'Lucy', 
+  status: 'offline',
+  lastActivity: 22
+}, {
+  username: 'Bob', 
+  status: 'online',
+  lastActivity: 104
+}]))
