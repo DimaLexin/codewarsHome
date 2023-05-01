@@ -1937,26 +1937,26 @@ const strCount1 = {
 // В этом случае вы должны вернуть пустой объект {}(пустой словарь в C#).
 
 
-const whosOnline = (friends) => {
-  if (friends.length > 0) {
-      const friendsOnline ={}
-      friends.forEach(element => {
-          if (element.status==='online' && element.lastActivity <= 10) {
-              friendsOnline.online = friendsOnline.online || []
-              friendsOnline.online.push(element.username)
+// const whosOnline = (friends) => {
+//   if (friends.length > 0) {
+//       const friendsOnline ={}
+//       friends.forEach(element => {
+//           if (element.status==='online' && element.lastActivity <= 10) {
+//               friendsOnline.online = friendsOnline.online || []
+//               friendsOnline.online.push(element.username)
 
-          } else if (element.status==='offline') {
-                    friendsOnline.offline = friendsOnline.offline || []
-                    friendsOnline.offline.push(element.username)
-                } else {
-                      friendsOnline.away = friendsOnline.away || [] 
-                      friendsOnline.away.push(element.username)
-                  }
-      });
-      return friendsOnline
-  } 
-  return []
-}
+//           } else if (element.status==='offline') {
+//                     friendsOnline.offline = friendsOnline.offline || []
+//                     friendsOnline.offline.push(element.username)
+//                 } else {
+//                       friendsOnline.away = friendsOnline.away || [] 
+//                       friendsOnline.away.push(element.username)
+//                   }
+//       });
+//       return friendsOnline
+//   } 
+//   return []
+// }
 
 // const whosOnline = (friends) => {
 //   const onlineFriends = friends.filter(friend => friend.status === 'online' && friend.lastActivity < 10).map(friend => friend.username);
@@ -1976,23 +1976,129 @@ const whosOnline = (friends) => {
   
 //   return result;
 // };
-console.log(whosOnline([
-{
-  username: 'David',
-  status: 'offline',
-  lastActivity: 1
-}, 
-{
-  username: 'Dima',
-  status: 'online',
-  lastActivity: 1
-}, 
-{
-  username: 'Lucy', 
-  status: 'offline',
-  lastActivity: 22
-}, {
-  username: 'Bob', 
-  status: 'online',
-  lastActivity: 104
-}]))
+
+const whosOnline = (friends) => {
+  if (friends.length > 0)  {
+    const friendsOnline ={}
+    ArrOnline = friends.filter(el => el.lastActivity <= 10 && el.status === 'online').map(el=>el = el.username)
+    ArrAway = friends.filter(el=> el.lastActivity > 10 && el.status === 'online').map(el=>el = el.username)
+    ArrOffline = friends.filter(el=> el.status === 'offline').map(el=>el = el.username)
+      if (ArrOnline.length > 0) {
+        friendsOnline.online = ArrOnline
+      } 
+      if (ArrAway.length > 0) {
+        friendsOnline.away = ArrAway
+      } 
+      if (ArrOffline.length > 0) {
+        friendsOnline.offline = ArrOffline
+      } 
+      return friendsOnline
+  } else return []
+}
+
+
+// //console.log(whosOnline([
+// {
+//   username: 'David',
+//   status: 'online',
+//   lastActivity: 1
+// }, 
+// {
+//   username: 'Dima',
+//   status: 'online',
+//   lastActivity: 1
+// }, 
+// {
+//   username: 'Lucy', 
+//   status: 'offline',
+//   lastActivity: 22
+// }, {
+//   username: 'Bob', 
+//   status: 'online',
+//   lastActivity: 104
+// }]))
+
+function animal(obj){
+  return `This ${obj.color} ${obj.name} has ${obj.legs} legs.`
+}
+
+//console.log(animal({name:"dog",legs:4,color:"white"}))//,"This white dog has 4 legs.")
+
+function greet1(language) {
+      const langObj= {
+        english: 'Welcome',
+        czech: 'Vitejte',
+        danish: 'Velkomst',
+        dutch: 'Welkom',
+        estonian: 'Tere tulemast',
+        finnish: 'Tervetuloa',
+        flemish: 'Welgekomen',
+        french: 'Bienvenue',
+        german: 'Willkommen',
+        irish: 'Failte',
+        italian: 'Benvenuto',
+        latvian: 'Gaidits',
+        lithuanian: 'Laukiamas',
+        polish: 'Witamy',
+        spanish: 'Bienvenido',
+        swedish: 'Valkommen',
+        welsh: 'Croeso'
+      }
+    return (Object.keys(langObj).some(el=>el===language)) ? langObj[language] : langObj.english
+}
+//console.log(greet('sadfs'))
+//console.log(greet1('dutch'))
+
+// 'Welkom', "Your function should have returned 'Welkom'. Try again.")
+
+function combine(...args) {
+  let resObj ={}
+      for (const obj of args) { 
+          for (const [key, value] of Object.entries(obj)) {
+            resObj[key] = resObj[key]||0
+            resObj[key]+=value
+          }
+      }
+  return  resObj
+
+}
+
+const objA = {}
+const objB = {}
+const objC = { a: 5, d: 11, e: 8 }
+const objD = {}
+
+//console.log(combine(objA, objB))
+
+
+const smallEnough =(a, limit)  => {
+    return a.every(el=>el <= limit)
+}
+
+
+//console.log(smallEnough([66, 101], 200))
+
+var isAnagram = function(test, original) {
+  const testSort = Array.from(test).map(el=>el=el.toLowerCase()).sort((a,b)=>a.charCodeAt()-b.charCodeAt()) 
+  const originalSort =Array.from(original).map(el=>el=el.toLowerCase()).sort((a,b)=>a.charCodeAt()-b.charCodeAt())
+  console.log(testSort) 
+  console.log(originalSort) 
+  return testSort.every((el,index)=>el===originalSort[index]) && testSort.length ===originalSort.length
+};
+//console.log(isAnagram("iIEEqikWOAO", "EyWIOEOAkqii"))
+
+
+const sumOfMinimums = function(arr) {
+    return arr.reduce((acc,current,index)=>  acc += Math.min(...arr[index]),0)
+}
+
+//console.log(sumOfMinimums([[7, 9, 8, 6, 2], [6, 3, 5, 4, 3], [5, 8, 7, 4, 5]]))
+
+const rowWeights =(array) =>{
+  let [first, second] = [0,0]
+  first = array.filter((el,i)=>i%2===0).reduce((acc,current)=>acc+=current,0)
+  second = array.filter((el,i)=>i%2!==0).reduce((acc,current)=>acc+=current,0)
+   console.log(second)
+   return [first,second]
+}
+console.log(rowWeights([50,60,70,80]))
