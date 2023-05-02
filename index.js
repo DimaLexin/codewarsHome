@@ -2101,4 +2101,52 @@ const rowWeights =(array) =>{
    console.log(second)
    return [first,second]
 }
-console.log(rowWeights([50,60,70,80]))
+//console.log(rowWeights([50,60,70,80]))
+
+//console.log(!1)
+
+
+// function cakes(recipe, available) {
+//   if (Object.keys(recipe).every(el=>available.hasOwnProperty(el))) {
+//         let cakeNumb = []
+//         for (key in recipe) {
+//           //console.log(key)
+//           cakeNumb.push(Math.floor(available[key]/recipe[key]))
+//           //console.log(cakeNumb)
+//         }
+//         return Math.min(...cakeNumb)
+//   }
+//   return 0 
+// }
+
+function cakes(recipe, available) {
+   return Math.min(...Object.keys(recipe).map(el=>Math.floor(available[el]/recipe[el]))) || 0
+}
+//console.log(cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200}))
+
+const roundToNext5 = function (n){
+    let i=0;
+    while (true) {
+      if (n%5 != 0) {
+        [i , n] = [i++, n+i]
+      } else 
+        break
+    }
+    return n
+}
+//console.log(roundToNext5(12))
+
+function sentence(List33) {
+  //return Object.key(List)
+  return List33.map(el=>+el[0])
+
+}
+
+List = [
+  {'4': 'dog' }, {'2': 'took'}, {'3': 'his'},
+  {'-2': 'Vatsan'}, {'5': 'for'}, {'6': 'a'}, {'12': 'spin'}
+ ]
+
+
+console.log(sentence(List))
+
