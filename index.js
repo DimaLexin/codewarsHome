@@ -2136,10 +2136,11 @@ const roundToNext5 = function (n){
 }
 //console.log(roundToNext5(12))
 
-function sentence(List33) {
-  //return Object.key(List)
-  return List33.map(el=>+el[0])
-
+function sentence(List) {
+  return  list
+  .sort((a, b) => Object.keys(a)[0] - Object.keys(b)[0])
+  .map(item => Object.values(item)[0])
+  .join(' ')
 }
 
 List = [
@@ -2147,6 +2148,19 @@ List = [
   {'-2': 'Vatsan'}, {'5': 'for'}, {'6': 'a'}, {'12': 'spin'}
  ]
 
+//console.log(sentence(List))
 
-console.log(sentence(List))
+function killer(suspectInfo, dead) {
+  for ( const suspectkiller of Object.entries(suspectInfo)) {
+      if (dead.every(elem => suspectkiller[1].includes(elem))) {
+        return  suspectkiller[0]
+      }
+  }
+}
+
+console.log(killer({
+  'James': ['Jacob', 'Bill', 'Lucas'],
+  'Johnny': ['David', 'Kyle', 'Lucas'],
+  'Peter': ['Lucy', 'Kyle']},
+  ['Lucas', 'Bill']))
 
