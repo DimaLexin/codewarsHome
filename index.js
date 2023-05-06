@@ -2136,17 +2136,17 @@ const roundToNext5 = function (n){
 }
 //console.log(roundToNext5(12))
 
-function sentence(List) {
-  return  list
-  .sort((a, b) => Object.keys(a)[0] - Object.keys(b)[0])
-  .map(item => Object.values(item)[0])
-  .join(' ')
-}
+// function sentence(List) {
+//   return  list
+//   .sort((a, b) => Object.keys(a)[0] - Object.keys(b)[0])
+//   .map(item => Object.values(item)[0])
+//   .join(' ')
+// }
 
-List = [
-  {'4': 'dog' }, {'2': 'took'}, {'3': 'his'},
-  {'-2': 'Vatsan'}, {'5': 'for'}, {'6': 'a'}, {'12': 'spin'}
- ]
+// List = [
+//   {'4': 'dog' }, {'2': 'took'}, {'3': 'his'},
+//   {'-2': 'Vatsan'}, {'5': 'for'}, {'6': 'a'}, {'12': 'spin'}
+//  ]
 
 //console.log(sentence(List))
 
@@ -2158,9 +2158,25 @@ function killer(suspectInfo, dead) {
   }
 }
 
-console.log(killer({
-  'James': ['Jacob', 'Bill', 'Lucas'],
-  'Johnny': ['David', 'Kyle', 'Lucas'],
-  'Peter': ['Lucy', 'Kyle']},
-  ['Lucas', 'Bill']))
+// console.log(killer({
+//   'James': ['Jacob', 'Bill', 'Lucas'],
+//   'Johnny': ['David', 'Kyle', 'Lucas'],
+//   'Peter': ['Lucy', 'Kyle']},
+//   ['Lucas', 'Bill']))
 
+function sortList (sortBy, list9) {
+return  list9.sort((a,b)=> b[sortBy] - a[sortBy] )}
+// console.log(sortList('a',[
+//   {"a": 1, "b": 3},
+//   {"a": 3, "b": 2},
+//   {"a": 2, "b": 40},
+//   {"a": 4, "b": 12}
+// ]))
+
+function myLanguages(results) {
+  return Object.entries(results).sort((a,b) => b[1] - a[1]).filter(([key, value])=>value >=60).map(([key, values]) => key)
+}
+// console.log(myLanguages(
+//   { 
+
+//   }))
