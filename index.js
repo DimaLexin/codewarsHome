@@ -2180,3 +2180,61 @@ function myLanguages(results) {
 //   { 
 
 //   }))
+
+   let student = {
+        name: "Семён",
+        age: 21,
+        skills: {
+            html: true,
+            css: true,
+            react: false,
+        },
+    };
+        
+    //console.log(Object.getOwnPropertyNames(student));
+  //   for (let key in student) {
+  //     console.log(key);
+  //     console.log(student[key]);
+  // }  
+
+  const basket = {
+    buy1: 'Гречка',
+    buy2: 'Хлеб', 
+    buy3: 'Помидор'
+  };
+
+//const PriceTotal = basket.reduce((total, item)=> total + item.price * item.quantaty,0)
+//console.log(PriceTotal)
+// const PriceTotal = cartItems.reduce (
+//   const Total = cartItems.reduce (
+//     (total, item) => total + item.price * item.quantaty, 0);
+//     console.log(const PriceTotal = cartItems.reduce (
+//       );
+
+const strCount11 = {
+  first:  "1",
+  second: "2",
+  third:  false,
+  fourth: ["anytime",2,3,4]    }
+
+// for (let [key, value] of Object.entries(strCount11)) {
+//   console.log(`${key}: ${value}`);
+// }
+
+const students = [
+  {name: 'Вася', age: 18},
+  {name: 'Маша', age: 28},
+  {name: 'Катя', age: 8},
+];
+//console.log(students.find (student=>student.name ==='Вася'&& student.age === 28 ));
+
+
+//console.log(students.findIndex (student=>student.name ==='Вася'&& student.age === 18 ));
+
+function myLanguages(results) {
+  return Object.entries(results).filter(([keys,values])=> values >= 60).map(([keys,values])=>[keys,values]= keys)}
+  
+  // console.log(myLanguages({"Java": 10, 
+  //                          "Ruby": 80, 
+  //                          "Python": 65}
+  //                         ))
