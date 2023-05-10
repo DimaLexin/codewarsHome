@@ -2238,3 +2238,99 @@ function myLanguages(results) {
   //                          "Ruby": 80, 
   //                          "Python": 65}
   //                         ))
+// код стороннего разработчика//
+  let point5 = {
+    x:10,
+    y:15,
+    z: 25
+  }
+// конец код стороннего разработчика//
+let z = Symbol ();
+point5[z] = 30
+//console.log(point5)
+
+
+
+
+
+
+
+
+//console.log(ObjRectangle.ObjPrint())
+
+//console.log(ObjRectangle.distance())
+
+
+let ParObj =  {
+  x: 20,
+  y : 30,
+  t: 99
+}
+
+let t = Symbol();
+
+//console.log(par1, par2)
+ParObj[t] = 8
+//console.log(ParObj)
+
+// for (let field in ParObj) {
+//   console.log(field, ParObj[field])
+// }
+
+
+let point51 = {
+  x:10,
+  y:15,
+  z1: 25
+}
+// конец код стороннего разработчика//
+
+let z1 = Symbol ();
+point51[z] = 30
+// console.log(point51)
+
+function Rectangle (leftPoint, h, w)  {
+  this._leftPoint = leftPoint;
+  this._h = h;
+  this._w = w;
+  this.ObjPrint = function () {
+    for (let field in this) {
+    console.log(field, this[field])
+    }
+  };
+  this.distance = function () {
+    return this._leftPoint * this._h * this._w
+  };
+  this.toString = function () {
+    return `Прямоугольник с координатами (Х,Y) шириной ${this._h} и высотой ${this._w}`
+  };
+  this.valueOf = function() {
+    return this._h * this._w
+  }
+}
+let wert = new Rectangle(1, 2, 3)
+// console.log(String(wert))
+// console.log(+wert)
+
+
+let p1 = new Point(10,20)
+
+
+function PointZ (x, y){
+     this.x = x;
+     this.y = y;
+    //  this.print  = function () {
+    //   console.log ('${this.x}+${this.y}')
+    //  } ;
+     this.distance  = function () {
+                  return Math.sqrt(this.x **2 + this.y **2) }
+     this.toString  = function () {
+           return ` точка с координ ${this.x} и ${this.y}`}
+
+     this.valueOf  = function () {
+          return Math.sqrt (this.x**2 +this.x**2);
+}
+}
+
+let r = new PointZ(10,20)
+alert(r)
