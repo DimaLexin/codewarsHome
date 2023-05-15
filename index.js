@@ -2333,4 +2333,252 @@ function PointZ (x, y){
 }
 
 let r = new PointZ(10,20)
-alert(r)
+//alert(r)
+
+
+
+
+// figuObj.x = 1;
+// figuObj['y'] = 1;
+// figuObj.width = 1;
+
+
+function newFigure (obj) {
+    for (let field in obj) {
+      //console.log(`Имя св-ва: ${field}  значение св-ва:` obj['field'] )
+      console.log( field+"  " + obj[field])
+    }
+} 
+
+//newFigure(figuObj)
+
+//console.log(JSON.stringify(figuObj))
+
+function newFigObj (x,y, width, height) {
+  this.x = x,
+  this.y = y,
+  this.width = width,
+  this.height = height,
+  this.square = function () {
+      return this.x  * this.y * this.width * this.height 
+  }
+  this.toString = function () {
+    return `Прямоугольник с координатами ${this.x} и ${this.y} шириной ${this.width} и высотой ${this.height} `
+  }
+  this.valueOf = function ()  {
+    return this.square()
+  }
+}
+
+let quantaty = new newFigObj (1,1,1,2);
+//console.log(quantaty.square())
+
+let x = Symbol();
+let y = Symbol();
+
+[quantaty[x],quantaty[y]] = [20,30]
+//console.log(String(quantaty))
+//console.log(Number(quantaty))
+
+
+
+
+// console.log(String(quantatyClass))
+
+// try {
+//     quantatyClass.Width = -8
+// }
+// catch (e) {
+//   console.log(e)
+// }
+//console.log(quantatyClass.Height)
+ //console.log(quantatyClass.getCount())
+
+class Rect {
+  static counter = 0
+  constructor (x, y, width, height) {
+    this.x = x,
+    this.y = y
+    this.width = width,
+    this.height = height,
+    Rect.counter++
+  }
+
+  static getCounter() {
+    return  Rect.counter
+  }
+}
+
+let quantityClass = new Rect(1, 1, 1, 1)
+//console.log(quantityClass.getCount())
+
+
+
+
+class Point9 {
+  static counter = 0;
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    Point9.counter++;
+  }
+
+  static getCounter () {
+    return  Point9.counter
+  }
+}
+
+let p9 = new Point9(5, 10);
+let p10 = new Point9(6, 10);
+let p3 = new Point9(7, 1);
+//console.log(Point9.getCounter()); // Output: 3
+
+
+//console.log(ObjClass.getCount())
+//let newItem = new ObjClass (1,2,3,4)
+//console.log(ObjClass.getCount())
+
+class modelCar {
+  constructor (x,y,maxspeed) {
+    this.x = x,
+    this.y = y,
+    this.maxspeed = maxspeed
+  }
+
+  move (point1,point2)  {
+    this.x = point1,
+    this.y = point2
+    console.log('движение на машине')
+  }
+}
+
+class Truck extends modelCar {
+  constructor (x,y,maxspeed,capacity) {
+    super (x,y,maxspeed),
+    this.capacity = capacity
+  }
+
+  move (point1,point2) {
+    super.move (point1,point2)
+    console.log('движение на грузовике') 
+  }
+}
+let kamaz = new Truck(7,8,10,'15 000')
+//console.log(kamaz.move(1,2))
+//console.log(kamaz)
+
+class ObjClass {
+  static counter = 0
+  constructor (x,y, width, height) {
+    this.x = x,
+    this.y = y
+    this._width = width,
+    this._height = height,
+    ObjClass.counter ++
+  }
+
+  static getCount() {
+    return  ObjClass.counter
+  }
+
+  get Square () {
+    return this.x  * this.y * this.width * this.height 
+  }
+
+  set Width (point) {
+      if (point < 0) throw new Error('Ширина отрицательная') 
+      this.width = point
+  }
+
+  get Width () {
+    return this.width
+  }
+
+ set Height (point) {
+      if (point < 0) throw new Error('Высота отрицательная') 
+      this.height
+  }
+
+  get Height () {
+    return this.height
+  }
+  
+  toString () {
+    return `Прямоугольник с координатами ${this.x} и ${this.y} шириной ${this.width} и высотой ${this.height} `
+  }
+
+  valueOf () {
+    return this.square()
+  }
+}
+
+class ObjClass5 {
+    constructor (x,y, width, height) {
+    this.x = x,
+    this.y = y
+    this._width = width,
+    this._height = height
+    }
+
+    getWidth () {
+      return this._width 
+    }
+
+    setWidth(w) {
+      if (this.check(w)) this._width  = w
+    }
+
+    getHeight () {
+      return this._height 
+    }
+
+    setHeight (h) {
+      if  (this.check(h)) this._height = h
+    }
+
+    check (data) {
+      return data > 0
+    }
+}
+let testItem = new ObjClass5(5,10,15,20)
+
+let randomNumb = {
+  toRandomNumb () {
+    return Math.random()*100
+  }
+}
+
+class RandomRec {
+  constructor (x,y,width,height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+  }
+  getX () {
+    return this.x 
+  }
+
+  setX (x) {
+    if (x === undefined) this.x = this.toRandomNumb ()
+    else this.x = x
+  }
+}
+Object.assign(RandomRec.prototype, randomNumb);
+let moon = new RandomRec ()
+let ret;
+moon.setX(ret)
+console.log(moon.getX())
+
+
+// console.log(Object.getOwnPropertyDescriptors(testItem))
+// console.log(Object.defineProperties(testItem, {
+//   field: {
+//   writable :false,
+//   enumerable : true,
+//   configurable:false }
+// }))
+
+// console.log(Object.getOwnPropertyDescriptors(testItem))
+
+
