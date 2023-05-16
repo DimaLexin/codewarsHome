@@ -2554,7 +2554,7 @@ class RandomRec {
     this.y = y;
     this.width = width;
     this.height = height;
-  }
+ }
   getX () {
     return this.x 
   }
@@ -2568,7 +2568,7 @@ Object.assign(RandomRec.prototype, randomNumb);
 let moon = new RandomRec ()
 let ret;
 moon.setX(ret)
-console.log(moon.getX())
+//console.log(moon.getX())
 
 
 // console.log(Object.getOwnPropertyDescriptors(testItem))
@@ -2581,4 +2581,29 @@ console.log(moon.getX())
 
 // console.log(Object.getOwnPropertyDescriptors(testItem))
 
+let ewr = '100px'
+//console.log(parseFloat(ewr))
 
+
+class NewPoint {
+  constructor (x,y) {
+    this.x = x;
+    this.y = y;
+ }
+}
+
+class Curcle1 {
+  constructor (p,r) {
+    this.p = p;
+    this.r = r;
+ }
+}
+
+let n =new Point (5,10)
+let q =new Curcle1 (p,20)
+console.log(q)
+
+let jsonSend = JSON.stringify(q)
+console.log(jsonNew)
+
+// et jsonSend = JSON.stringify(q)
