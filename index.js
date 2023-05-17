@@ -2601,9 +2601,84 @@ class Curcle1 {
 
 let n =new Point (5,10)
 let q =new Curcle1 (p,20)
-console.log(q)
+//console.log(q)
 
 let jsonSend = JSON.stringify(q)
-console.log(jsonNew)
+//console.log(jsonNew)
 
 // et jsonSend = JSON.stringify(q)
+
+// let sun = [
+//   {x: 5, y:10},
+//   {x: 6, y:10},
+//   {x: 5, y:10}
+// ]
+
+// return  sun.filter(el=>el.x == 5)
+
+let sun = [
+  {x: 5, y:10},
+  {x: 6, y:10},
+  {x: 5, y:10}
+];
+
+//console.log(sun.filter(el => el.x === 5));
+
+// let i = new Set ([20,30,40,20])
+// console.log(i);
+// i.add (15)
+// console.log(i);
+// console.log('-------------------');
+// i.add (20)
+// console.log(i);
+
+// i.delete (20)
+// console.log(i);
+// console.log(i.size);
+// console.log(i.has(20));
+// i.clear()
+// console.log(i);
+
+let date = new Date ()
+console.log(date)
+console.log(date.getDate())
+
+
+console.log(date.getUTCDate())
+console.log('-------------------');
+
+date.setFullYear(2021)
+date.setMonth(0)
+date.setDate(8)
+date.setHours(12)
+console.log(date)
+console.log('-------------------');
+
+
+date = new Date (2020,1,12,15,30,50,100)
+console.log(date)
+date.setDate(date.getDate()+5)
+console.log(date)
+
+console.log('-------------------');
+let ms = Date.parse('2022-12-31T23:59:59.999+03:00')
+console.log(new Date(ms))
+console.log('-------------------');
+
+function toLog(msg) {
+  console.log(msg)
+}
+let stopId = setTimeout(toLog,1000,Math.random())
+clearTimeout(stopId)
+
+
+let count=0;
+
+function intervalStr () {
+  count++
+  console.log("Start interval " + count)
+  if (count < 10) setTimeout(intervalStr(),1000)
+}
+setTimeout(intervalStr(),1000)
+
+
