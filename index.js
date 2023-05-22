@@ -2679,6 +2679,25 @@ function intervalStr () {
   console.log("Start interval " + count)
   if (count < 10) setTimeout(intervalStr(),1000)
 }
-setTimeout(intervalStr(),1000)
+//setTimeout(intervalStr(),1000)
 
+let m = new Map()
+m.set('name','Alex')
+m.set('age',25)
+m.set('single',true)
+console.log(m)
+console.log(m.size)
+console.log(m.get('name'))
+console.log(m.has('single'))
+m.delete('single')
+console.log(m.has('single'))
+m.set('single',false)
+
+for (let k of m.keys()) {
+  console.log(k)
+}
+
+for (let entrie of m) {
+  console.log(entrie)
+}
 
