@@ -2638,66 +2638,60 @@ let sun = [
 // console.log(i.has(20));
 // i.clear()
 // console.log(i);
-
-let date = new Date ()
-console.log(date)
-console.log(date.getDate())
-
-
-console.log(date.getUTCDate())
-console.log('-------------------');
-
-date.setFullYear(2021)
-date.setMonth(0)
-date.setDate(8)
-date.setHours(12)
-console.log(date)
-console.log('-------------------');
-
-
-date = new Date (2020,1,12,15,30,50,100)
-console.log(date)
-date.setDate(date.getDate()+5)
-console.log(date)
-
-console.log('-------------------');
-let ms = Date.parse('2022-12-31T23:59:59.999+03:00')
-console.log(new Date(ms))
-console.log('-------------------');
-
-function toLog(msg) {
-  console.log(msg)
-}
-let stopId = setTimeout(toLog,1000,Math.random())
-clearTimeout(stopId)
-
-
-let count=0;
-
-function intervalStr () {
-  count++
-  console.log("Start interval " + count)
-  if (count < 10) setTimeout(intervalStr(),1000)
-}
+ 
 //setTimeout(intervalStr(),1000)
 
-let m = new Map()
-m.set('name','Alex')
-m.set('age',25)
-m.set('single',true)
-console.log(m)
-console.log(m.size)
-console.log(m.get('name'))
-console.log(m.has('single'))
-m.delete('single')
-console.log(m.has('single'))
-m.set('single',false)
+// let m = new Map()
+// m.set('name','Alex')
+// m.set('age',25)
+// m.set('single',true)
+// console.log(m)
+// console.log(m.size)
+// console.log(m.get('name'))
+// console.log(m.has('single'))
+// m.delete('single')
+// console.log(m.has('single'))
+// m.set('single',false)
 
-for (let k of m.keys()) {
-  console.log(k)
+// for (let k of m.keys()) {
+//   console.log(k)
+// }
+
+// for (let entrie of m) {
+//   //console.log(entrie)
+// }
+const MIN =1
+const MAX =2
+const COUNT = 10000
+let data = [];
+let c1 = 0
+const DELAY = 5
+
+function random (min,max) {
+  return Math.floor((Math.random() * (max-min+1))) + min
 }
 
-for (let entrie of m) {
-  console.log(entrie)
+function add() {
+    if (c1 <COUNT) {
+      c1++
+      let n = random(MIN,MAX)
+      console.log(n)
+      data.push(n)
+      setTimeout(add,DELAY)
+    }
+       else analyise ()
 }
 
+function analyise () {
+  console.log(data)
+  let map = new Map()
+  for (let v of data){
+    if (map.has(v)) map.set(v, map.get(v) +1)
+    else  map.set(v,1)
+  }
+  for (let entrie of map) {
+    //console.log(entrie[0] + "  "  +entrie[1])
+  }
+}
+
+setTimeout(add,DELAY)
