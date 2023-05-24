@@ -2660,38 +2660,102 @@ let sun = [
 // for (let entrie of m) {
 //   //console.log(entrie)
 // }
-const MIN =1
-const MAX =2
-const COUNT = 10000
-let data = [];
-let c1 = 0
-const DELAY = 5
+// const MIN =1
+// const MAX =2
+// const COUNT = 10000
+// let data = [];
+// let c1 = 0
+// const DELAY = 5
 
-function random (min,max) {
-  return Math.floor((Math.random() * (max-min+1))) + min
-}
+// function random (min,max) {
+//   return Math.floor((Math.random() * (max-min+1))) + min
+// }
 
-function add() {
-    if (c1 <COUNT) {
-      c1++
-      let n = random(MIN,MAX)
-      console.log(n)
-      data.push(n)
-      setTimeout(add,DELAY)
-    }
-       else analyise ()
-}
+// function add() {
+//     if (c1 <COUNT) {
+//       c1++
+//       let n = random(MIN,MAX)
+//       //console.log(n)
+//       data.push(n)
+//       setTimeout(add,DELAY)
+//     }
+//        else analyise ()
+// }
 
-function analyise () {
-  console.log(data)
-  let map = new Map()
-  for (let v of data){
-    if (map.has(v)) map.set(v, map.get(v) +1)
-    else  map.set(v,1)
-  }
-  for (let entrie of map) {
-    //console.log(entrie[0] + "  "  +entrie[1])
-  }
-}
+// function analyise () {
+//   console.log(data)
+//   let map = new Map()
+//   for (let v of data){
+//     if (map.has(v)) map.set(v, map.get(v) +1)
+//     else  map.set(v,1)
+//   }
+//   for (let entrie of map) {
+//     console.log(entrie[0] + "  "  +entrie[1])
+//   }
+// }
 
-setTimeout(add,DELAY)
+// setTimeout(add,DELAY)
+
+//let inp = prompt('Введите строку')
+//console.log(inp.toUpperCase().split('').filter(el=>el==='A').length)
+let newAr1 = [1,'s',true,[7,7,7], {name:'Dina', age:29}]
+let newAr1Json = JSON.stringify(newAr1)
+// console.log(newAr1Json)
+// console.log(JSON.parse(newAr1Json))
+
+// let ArrLen = Math.floor(Math.random()*(15-5)+5)
+// console.log(ArrLen)
+// let newAr2 = new Array(ArrLen)
+// console.log (newAr2)
+
+// for (let i=0 ; i < newAr2.length; i++) {
+//   newAr2[i]=Math.floor(Math.random()*(100-0)+0) 
+// }
+
+// console.log (newAr2)
+// console.log ('--------------------------')
+// console.log (newAr2.sort((a,b)=>b-a))
+// console.log ('--------------------------')
+// console.log (newAr2.filter((el)=>el>50).length+'  '+ newAr2.filter((el)=>el<50).length)
+// console.log (newAr2)
+
+let newMap = new Map();
+// newMap.set('wood', 'дерево')
+// newMap.set('choice', 'выбор')
+// newMap.set('good', 'хорошо')
+// newMap.set('length', 'длина')
+// console.log(newMap)
+// for (let entrie of newMap.entries()) {
+//   console.log(entrie)
+// }
+
+// let newMess = prompt(`Введите два слова через запятую`)
+// let [key,value] = newMess.split(',')
+// console.log(key,value)
+// console.log(newMess.split(','))
+// newMap.set(newMess.split(',')[0],newMess.split(',')[1])
+// console.log(newMap)
+
+// let v = 0
+// let newSet = new Set()
+// while (v < 100) {
+//   newSet.add(Math.round((Math.random() * (10-1)+1)))
+//   v++
+//  // console.log(v)
+// }
+// console.log(newSet.size)
+// let newData1 = new Date()
+// console.log (newData1.getTime())
+// let startYear = new Date (2023,0,1,0,0,0,0)
+// console.log (startYear)
+
+// newMap.set('sec', newData1.getSeconds() )
+// newMap.set('min',newData1.getMinutes())
+// newMap.set('hours',newData1.getHours() )
+//  newMap.set('days',newData1.getDate() - startYear.getDate() )
+//  console.log(newMap)
+
+let wordArr = ['ёж', 'яблоко', 'клён', 'стол', 'ананас']
+//console.log(wordArr.sort((a,b)=>a.localeCompare(b)))
+
+
