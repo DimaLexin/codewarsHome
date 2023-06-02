@@ -1,124 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <style>
-        #header {
-            font-size: 500%;
+        /* body {
+            font-size: 150%;
+        }
+        #error {
+            color: #c00;
+            display: none;
+        } */
+        ul {
+            font-size: 150%;
+        }
+        ul ul {
+            font-size: 90%;
+            display: none;
+        }
+        .item {
+            border-bottom: 1px dashed #000;
+            cursor: pointer;
         }
     </style>
+    <title>Document</title>
+
+    <script>
+            function menu (event) {
+                let ul = event.target.parentNode.querySelector('ul')  
+                if (ul.style.display =='' || ul.style.display ==='none') ul.style.display ='block'
+                else ul.style.display ='none'
+            }
+
+                document.addEventListener('DOMContentLoaded', function(event){
+                for (let item of document.querySelectorAll('.item')) {
+                    item.addEventListener('click', menu)
+                }
+                document.querySelector('button').addEventListener('click', function(event) {
+                    let text = document.querySelector('textarea')
+                    if (text.value.length == 0) alert('нет комментария')
+                    else {
+                        let comment = document.querySelector('.comment').cloneNode()
+                        let date = new Date()
+                        comment.innerHTML = `${date.getDay()} . ${date.getMonth()}. ${date.getFullYear()}. 
+                                            ${date.getHours()}: ${date.getMinutes()} ${text.value}`
+                        text.before(comment)
+                    }
+                })
+        })
+
+    </script>
   
 </head>
-<body>
-    <button onclick="handerButton(this)">Кнопка 1</button>
-    <button id="button2">Кнопка 2</button>
-    <button id="button3">Кнопка 3</button>
-
-    <h1 id="header">Заголовок</h1>
-    <p class="test" style="font-size:150%">Текст статьи</p>
-    <p>Текст статьи</p>
-    <ul class="test">
-        <li>Раз </li>
-        <li>Два </li>
-        <li>Три </li>
+<body>   
+    <!-- <form name="myform" action="#" method="post">
+        <p id="error"></p>
+    <div><label>Имя</label> <input type="text" name="name"/></div>
+    <div><label>Согласен с правилами сайта</label> <input type="checkbox" name="rules" value="1"/></div>
+    <div><input type="submit" name="sbutton" value="Отправить"/></div>
+    </form> -->
+   <ul>
+        <li>
+            <span class="item">Пункт меню 1</span>
+            <ul>
+                <li>Пункт подменю 1 </li>
+                <li>Пункт подменю 2 </li>
+            </ul>
+        </li>
+        <li> 
+            <span class="item">Пункт меню 2</span>
+            <ul>
+                <li>Пункт подменю 1 </li>
+                <li>Пункт подменю 2 </li>
+             </ul>
+        </li>
     </ul>
-        <p>Текст<strong>статьи</strong></p>
-        <p>Небольшая <a href="https://1.ru">Cсылка </a></p>
-        <p>Еще <a href="https://2.ru">Cсылка </a></p>
-     <script>
-     function handerButton (obj) {
-        console.log(obj.innerHTML)
-     }
-     document.getElementById('button2').onclick = handerButton2
-     function handerButton2 (event) {
-        console.log(event.target.innerHTML)
-     }
-
-     document.getElementById('button3').addEventListener('click',handerButton2)
-     document.getElementById('button3').removeEventListener('click',handerButton2)
-
-        // console.log(document.documentElement)
-        // console.log(document.body)
-        // console.log(document.head)
-       // console.log(document.body.childNodes[7])
-       // console.log(document.body.childNodes[7].childNodes[0].nextSibling)
-        //console.log(document.body.childNodes[7].childNodes[3])
-        //console.log(document.body.childNodes[7].nextSibling)
-        //console.log(document.body.childNodes[7].previousSibling.previousSibling)
-        //console.log(document.body.childNodes[7].parentNode.parentNode)
-        // let html2= document.body.childNodes[7]
-        // console.log(html2.innerHtml)
-       // console.log(document.body.childNodes[7].innerHTML);
-        //console.log(document.body.innerHTML);
-        // let elem5 =document.body.childNodes[7]
-        // elem5.innerHTML = "<li>1 </li><li>2 </li><li>3 </li>"
-        //console.log(document.getElementById('header'))
-        // let tet = document.querySelectorAll('li')
-        //        for (let el of tet) {
-        //     console.log(el)
-        //     console.log(el.closest(".test").nodeName)
-        // }
-        // console.log(document.querySelector('.test'))
-
-//         let h1 = document.querySelector('h1')
-//         console.log(h1.hasAttribute('data-id'))
-//         h1.setAttribute('data-id', '5')
-//         console.log(h1.getAttribute('data-id'))
-//         h1.removeAttribute('data-id')
-// console.log(h1.getAttribute('data-id'))
-// for (let pAtrr of document.querySelector('p.test').attributes) {
-//     console.log(pAtrr)
-// }
-// let modifyP = document.querySelectorAll('a')
-// console.log(modifyP)
-// for (let a of modifyP) {
-//         a.setAttribute('target', '_blank')
-// }
-
-// document.querySelector('h1').classList.add('big')
-// document.querySelector('h1').classList.add('test')
-
-// let h77 = document.querySelector('#header')
-// h77.style.fontSize= '100%'
-// h77.style.color = 'red'
-// for (let elem of document.querySelectorAll('p')) {
-//     elem.style.fontStyle = 'italic'
-// }
-
-// function hide () {
-//     let opacity = +document.body.style.opacity
-//     opacity-=0.01
-//     if (opacity <= 0) opacity = 0
-//     document.body.style.opacity = opacity
-//     if (opacity >0) setTimeout(hide,10)
-// }
-// document.body.style.opacity = 1
-// //hide()
-
-// let p = document.createElement('p');
-// p.innerHTML = 'Эта строка добавлена через <strong>JS</strong>!'
-// //document.body.append(p)
-// //document.body.prepend(p)
-
-// //document.querySelector('ul').before(p)
-// document.querySelector('ul').after(p.outerHTML)
-// document.querySelector('ul').insertAdjacentHTML('beforeend','<p style ="color: red;">Вставка через жопу!</p>')
-
-// document.querySelector('a').remove()
-// document.querySelector('a').remove()
-
-// let ul1 = document.querySelector('ul').cloneNode(true)
-// document.body.append(ul1)
-
-</script>
-
-
-
-
-
-
+    <div id="comments"> 
+        <h2>Комментарии (<span id="count">0</span>):</h2>
+        <div class="comment"></div>
+        <textarea placeholder="Ваш комментарий"></textarea>
+        <br/>
+        <button>Отправить</button>
+    </div>
 </body>
 </html>
