@@ -50,9 +50,9 @@
     <input type="submit" name="reg" value="Зарегистрироваться">
  </form> -->
  
- <textarea name="" cols="40" rows="20"></textarea>
+ <!-- <textarea name="" cols="40" rows="20"></textarea>
  <br>
- <button>ОТПРАВИТЬ</button>
+ <button>ОТПРАВИТЬ</button> -->
 </body>
 <script>
 //     function mouseover (event) {
@@ -146,30 +146,30 @@
 // document.addEventListener('DOMContentLoaded', function(event){
 //     document.querySelector('form').addEventListener('submit',submit)
 // })
-function parseText (event) {
-    let text = document.querySelector('textarea').value.toLowerCase()
-    text.replace(/[\.\!,]/g, '')
-    let words = text.split(' ')
+// function parseText (event) {
+//     let text = document.querySelector('textarea').value.toLowerCase()
+//     text.replace(/[\.\!,]/g, '')
+//     let words = text.split(' ')
 
-    let map = new Map
-    for (let w of words){
-        w = w.trim()
-        if (w===' ') continue
-        if (map.has(w)) {
-            let c =map.get(w)
-            map.set(w,++c)
-        } 
-        else map.set(w,1)
-    }
-    if (document.querySelector('ul')) document.querySelector('ul').remove()
-    let ul = document.createElement('ul')
-    document.body.append(ul)
-    for (let elem of map) {
-        let li = document.createElement('li')
-        li.innerHTML = `Слово  ${elem[0]} : ${elem[1]}`
-        ul.append(li)
-    }
-}
+//     let map = new Map
+//     for (let w of words){
+//         w = w.trim()
+//         if (w===' ') continue
+//         if (map.has(w)) {
+//             let c =map.get(w)
+//             map.set(w,++c)
+//         } 
+//         else map.set(w,1)
+//     }
+//     if (document.querySelector('ul')) document.querySelector('ul').remove()
+//     let ul = document.createElement('ul')
+//     document.body.append(ul)
+//     for (let elem of map) {
+//         let li = document.createElement('li')
+//         li.innerHTML = `Слово  ${elem[0]} : ${elem[1]}`
+//         ul.append(li)
+//     }
+// }
 
 
 
@@ -191,21 +191,96 @@ function parseText (event) {
 //     test().then(succsess,error)
 //     console.log('hello')
 
+// async function loadImage() {
+//     let img = document.createElement('img')
+//     img.src = 'https://dzen.ru/lz5XeGt8f/p1C0s5156/5d0a692rkM/wvHMw_rNITw8p5qsNB0GpLj5akMM6OJ1pzHckpXX-PTZlsNEKwhyT37MNaNcl2NvTM6v44eJzJpcjz9k_YupSoS3w9vkmTE4cPW36S5OTqSzpWYTHLCuNbAsgsSHzbGmhfCVBDtKKgs8oWPjAchMLx-n4eWJi_ahK_5FXdPghD_7zJKWsMJ5Lz2Zt_9pCT-vueRzVxfOoWW9WO2YgKn38NC8wGUsZS87D5dV2SLbZ29Fx8i54s7osCDvQlrZ15Uv6uOXhJfEJiwvjomofAwIsJ3TblQPwodxsEjzgaez2sHOhcBkMmgHODyOQfU27l1YV8DIuPvX5JYczHZ488qCAPj7soGXzxsEPKmijHUaLYqG3HRuHMWOdYJd9pGjntLH8ajJaS19IzgcukP4HuBafk3S94Dy-cuHCNpzeOXruTPr66W9r8U5NSehupxcKhGRstRWTi_Lp0inddefhJHm3saL4F4Baz41L5pv6QzyWFFr1eOG4tbcjjrqc0n9_KExw_enjp7KFQwLtJq5TAEvloD7UUIIwJlipEjhlqS3xcLdn8pIP2UtGzq9ZsUfymlIVMfutdrq65Qy03Ba2N2KEubpj4e53R8tPLGftV0BD6iX5EZiC8affrtW-IG2v-fi9aTORwFvMREDq3jaPvtpbELh7bva08OLCOpLSO3grhPr8LCPhuoFGy2CqYtiMhGxkcZmbTLKoH2LdPinsLvp_f-PwWggbSAMHbZx1Q3RWUp_-fOw8f_TvSPQc3TY5IIo9s-5qp31PRQRrJ2XWyoRh7f1UG4Y4IpruXvho7a9-PPfm81hEXAJDRuPV8Yp0nJgZejzmsjq26870HVD7vSkMsP2kY66_yIRKqyvqEsyFbCM_GtgL-KbdKRQy7alis7b57HqWg9MHzwBv0rCBtJ9dFvUzLbiw_qKE9RzRcbXvCnkz6-jm906MTyvj7l2HSiprNxHRivftVGHZ8Oxh4v4_PG67G46TB4tDKpP9QfLX1Ja3dCv__PHmSz4aEnP5po68ceMgIHjJBkAvLu7Ux4KlbPWfVcs-Lh9glrwgZaz7tPwp9diAEEaGg-xbd8h6nB3QeTwrujNw5cA6mZs-fmIF9f0ubiExhU-D6CAjXcpLrez0WZjE_y7VKJ0ybWLrdbj37r2fTFMCAkjuHLjAt1beED-7Jv9_8yJI9xhc9DZtBbLyIedr9UaDDCKhpxbIzGQn9l-UjPdmEmfWPytlZDm6_qe10kGczIfJKhSxh7vaWJ33u2R38Hrhh32c23Ow4cA1u6ktL_1HicnvpuqUjEuhYHYR3cz64BUnG_ClbSK0eX-j-NuJWwHHymRSt0I-3lqQcD-hcrS55wD_n9y1vGnNsfJpo2m6iQuO6OLul8BD6eO-WNfPdOadaNZ0q2zjOzB-KfCWiRGEiEFiHngPd5_a2LdyZD81d2vD_JBavXRrArAyZ6-j9USFxCJo4ZRHC2ZkudnVC_smF62c9elsJTV4tSg4n08YxoPK6pK8xv1f0NawN662frAuR_6aFjm9J0-2fSbuJ7ELzANjoyPTxQ3iIbSXGwnwZVUvnfhkZu7--PtrPdADXMqEA-OUvk72V9WX9faheDv0bgg1VdnxPSIIvTkn4264wEUCqGGl3wXK6qf5UBoCv21cqVx-K-xsNTEx5nxWxJtKikwr3j5J9lWUF3g_7_hyOOEPOV1QPHKiTrV9aOvk_wbNB6zkJBTLSSJkvZARjHAmkWzcdeWpanu1N286X8KZgQfCrp22yr1Rn5q38yF2vH-tQ7ccHbw1b0A-sCQh5HJNSoZqJGvSSsoiJz-aH0ky55xkHTitYuDycTDp_NjEkkKPjGrVts62mN_W_3SleTdxLohxmxt2-OIE__gt7aE6DoNEaOenUAqGLS8yHFmMsWhcYF2yp2nk8br0ZzmWxJsAykMlFfcFv9Gf3n934fT9fm8O_1rafnIoBHc0oa9lOsCJwqwjZA'
+//     await new Promise((resolve, reject) => setTimeout(resolve,2000))
+//     document.body.append(img)
+//     return img
+// }
+
+// document.addEventListener('DOMContentLoaded', function(event){
+//     loadImage().then(function(img){
+//         console.log(img)
+//         setTimeout(()=> img.remove(), 1000)
+//     })
+//  })
+
+// function loadImage (succsess,error) {
+//     let image = document.createElement('img')
+//     image.src = 'https://avatars.mds.yandex.net/i?id=7f6f3afe8b0743d41cb05bacd60cd4644d69df09-9102470-images-thumbs&n=13'
+//     document.body.append(image)
+//     image.onload =succsess
+//     image.onerror =error
+// }   
+
+// document.addEventListener('DOMContentLoaded', function(event) {
+//     loadImage (function () {
+//         console.log('Загрузка завершена')
+//     },
+//     function (){
+//         console.log('Ошибка загрузки завершена')
+//     })
+// })
+
+// function loadImage () {
+//     return new Promise((resolve, reject) => {
+//         let image = document.createElement('img')
+//         image.src = 'https://avatars.mds.yandex.net/i?id=7f6f3afe8b0743d41cb05bacd60cd4644d69df09-9102470-images-thumbs&n=13'
+//         document.body.append(image)
+//         image.onload = resolve
+//         image.onerror = reject
+//     })
+    
+// document.addEventListener('DOMContentLoaded', function(event){
+//     let p1 = loadImage();
+//     console.log(p1);
+// })
+
+
+// //p.then(console.log('успешно'),console.log('не очень'))
+
+// }
+
+// function loadImage() {
+//     return new Promise((resolve, reject) => {
+//         let image = document.createElement('img');
+//         image.src = 'https://avatars.mds.yandex.net/i?id=7f6f3afe8b0743d41cb05bacd60cd4644d69df09-9102470-images-thumbs&n=13';
+//         document.body.append(image);
+//         image.onload = resolve;
+//         image.onerror = reject;
+//     });
+// }
+// document.addEventListener('DOMContentLoaded', function(event){
+//     let p1 = loadImage();
+//     p1.then(function(){console.log('все хорошо')},function(){console.log('все gkj[j]')});
+// })
+// let p1 = loadImage();
+// console.log(p1);
+
+// p1.then(() => {
+//     console.log('Изображение успешно загружено');
+// }).catch(() => {
+//     console.log('Ошибка загрузки изображения');
+// });
+
 async function loadImage() {
     let img = document.createElement('img')
-    img.src = 'https://dzen.ru/lz5XeGt8f/p1C0s5156/5d0a692rkM/wvHMw_rNITw8p5qsNB0GpLj5akMM6OJ1pzHckpXX-PTZlsNEKwhyT37MNaNcl2NvTM6v44eJzJpcjz9k_YupSoS3w9vkmTE4cPW36S5OTqSzpWYTHLCuNbAsgsSHzbGmhfCVBDtKKgs8oWPjAchMLx-n4eWJi_ahK_5FXdPghD_7zJKWsMJ5Lz2Zt_9pCT-vueRzVxfOoWW9WO2YgKn38NC8wGUsZS87D5dV2SLbZ29Fx8i54s7osCDvQlrZ15Uv6uOXhJfEJiwvjomofAwIsJ3TblQPwodxsEjzgaez2sHOhcBkMmgHODyOQfU27l1YV8DIuPvX5JYczHZ488qCAPj7soGXzxsEPKmijHUaLYqG3HRuHMWOdYJd9pGjntLH8ajJaS19IzgcukP4HuBafk3S94Dy-cuHCNpzeOXruTPr66W9r8U5NSehupxcKhGRstRWTi_Lp0inddefhJHm3saL4F4Baz41L5pv6QzyWFFr1eOG4tbcjjrqc0n9_KExw_enjp7KFQwLtJq5TAEvloD7UUIIwJlipEjhlqS3xcLdn8pIP2UtGzq9ZsUfymlIVMfutdrq65Qy03Ba2N2KEubpj4e53R8tPLGftV0BD6iX5EZiC8affrtW-IG2v-fi9aTORwFvMREDq3jaPvtpbELh7bva08OLCOpLSO3grhPr8LCPhuoFGy2CqYtiMhGxkcZmbTLKoH2LdPinsLvp_f-PwWggbSAMHbZx1Q3RWUp_-fOw8f_TvSPQc3TY5IIo9s-5qp31PRQRrJ2XWyoRh7f1UG4Y4IpruXvho7a9-PPfm81hEXAJDRuPV8Yp0nJgZejzmsjq26870HVD7vSkMsP2kY66_yIRKqyvqEsyFbCM_GtgL-KbdKRQy7alis7b57HqWg9MHzwBv0rCBtJ9dFvUzLbiw_qKE9RzRcbXvCnkz6-jm906MTyvj7l2HSiprNxHRivftVGHZ8Oxh4v4_PG67G46TB4tDKpP9QfLX1Ja3dCv__PHmSz4aEnP5po68ceMgIHjJBkAvLu7Ux4KlbPWfVcs-Lh9glrwgZaz7tPwp9diAEEaGg-xbd8h6nB3QeTwrujNw5cA6mZs-fmIF9f0ubiExhU-D6CAjXcpLrez0WZjE_y7VKJ0ybWLrdbj37r2fTFMCAkjuHLjAt1beED-7Jv9_8yJI9xhc9DZtBbLyIedr9UaDDCKhpxbIzGQn9l-UjPdmEmfWPytlZDm6_qe10kGczIfJKhSxh7vaWJ33u2R38Hrhh32c23Ow4cA1u6ktL_1HicnvpuqUjEuhYHYR3cz64BUnG_ClbSK0eX-j-NuJWwHHymRSt0I-3lqQcD-hcrS55wD_n9y1vGnNsfJpo2m6iQuO6OLul8BD6eO-WNfPdOadaNZ0q2zjOzB-KfCWiRGEiEFiHngPd5_a2LdyZD81d2vD_JBavXRrArAyZ6-j9USFxCJo4ZRHC2ZkudnVC_smF62c9elsJTV4tSg4n08YxoPK6pK8xv1f0NawN662frAuR_6aFjm9J0-2fSbuJ7ELzANjoyPTxQ3iIbSXGwnwZVUvnfhkZu7--PtrPdADXMqEA-OUvk72V9WX9faheDv0bgg1VdnxPSIIvTkn4264wEUCqGGl3wXK6qf5UBoCv21cqVx-K-xsNTEx5nxWxJtKikwr3j5J9lWUF3g_7_hyOOEPOV1QPHKiTrV9aOvk_wbNB6zkJBTLSSJkvZARjHAmkWzcdeWpanu1N286X8KZgQfCrp22yr1Rn5q38yF2vH-tQ7ccHbw1b0A-sCQh5HJNSoZqJGvSSsoiJz-aH0ky55xkHTitYuDycTDp_NjEkkKPjGrVts62mN_W_3SleTdxLohxmxt2-OIE__gt7aE6DoNEaOenUAqGLS8yHFmMsWhcYF2yp2nk8br0ZzmWxJsAykMlFfcFv9Gf3n934fT9fm8O_1rafnIoBHc0oa9lOsCJwqwjZA'
-    await new Promise((resolve, reject) => setTimeout(resolve,2000))
-    document.body.append(img)
-    return img
-}
-
-document.addEventListener('DOMContentLoaded', function(event){
-    loadImage().then(function(img){
-        console.log(img)
-        setTimeout(()=> img.remove(), 1000)
+    img.src = 'https://avatars.mds.yandex.net/i?id=7f6f3afe8b0743d41cb05bacd60cd4644d69df09-9102470-images-thumbs&n=13'
+    let p5 = await new Promise((resolve, reject) => {
+        img.onload = resolve
+        img.onerror = reject
     })
- })
-
+    document.body.append(img)
+    p5.then(function() {
+        (console.log('все ок'))}).catch (function() {
+        (console.log('все плохо'))})),
+        
+   
+}
+document.addEventListener('DOMContentLoaded', function(eve){
+    loadImage()
+})
 
 
 </script>
