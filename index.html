@@ -35,6 +35,15 @@
   
 </head>
 <body>   
+    <div id="courses">
+        <h2>Курс акций xyz</h2>
+    </div>
+    <!-- <form action="" name="myform">
+       <!-- <label>X:</label><input type="text" name="x"/><br/>
+       <label>Y:</label><input type="text" name="y"/><br/><br/>
+       <input type="submit" name="sbutton" value="отправить"/>
+       <p id="responce"></p>
+    </form> --> 
     <!-- <form name="myform" action="#" method="post">
         <p id="error"></p>
     <div><label>Имя</label> <input type="text" name="name"/></div>
@@ -55,7 +64,27 @@
  <button>ОТПРАВИТЬ</button> -->
 </body>
 <script>
-//     function mouseover (event) {
+//     let input
+//     document.addEventListener('DOMContentLoaded',function(event){
+//         input= document.querySelector('input[name="image"]')
+//         input.addEventListener('change',sendImage)
+//     })
+
+// async function sendImage (){
+//     let image = input.files[0]
+//     console.log(image)
+//     let response = await fetch('lesson_8.php', {
+//         method: 'POST',
+//         body:  image
+//     })
+//     if (response.ok) {
+//         let text = await response.text()
+//         console.log(text)
+//         document.querySelector('img').src=text
+//     } else console.log('Ошибка')
+//}
+
+    //     function mouseover (event) {
 //         let p = document.createElement('p')
 //         p.innerHTML ='Hello World'
 //         event.target.append(p)
@@ -264,24 +293,78 @@
 //     console.log('Ошибка загрузки изображения');
 // });
 
-async function loadImage() {
-    let img = document.createElement('img')
-    img.src = 'https://avatars.mds.yandex.net/i?id=7f6f3afe8b0743d41cb05bacd60cd4644d69df09-9102470-images-thumbs&n=13'
-    let p5 = await new Promise((resolve, reject) => {
-        img.onload = resolve
-        img.onerror = reject
-    })
-    document.body.append(img)
-    p5.then(function() {
-        (console.log('все ок'))}).catch (function() {
-        (console.log('все плохо'))})),
+// async function loadImage() {
+//     let img = document.createElement('img')
+//     img.src = 'https://avatars.mds.yandex.net/i?id=7f6f3afe8b0743d41cb05bacd60cd4644d69df09-9102470-images-thumbs&n=13'
+//     let p5 = await new Promise((resolve, reject) => {
+//         img.onload = resolve
+//         img.onerror = reject
+//     })
+//     document.body.append(img)
+//     p5.then(function() {
+//         (console.log('все ок'))}).catch (function() {
+//         (console.log('все плохо'))}),
         
    
+// }
+// document.addEventListener('DOMContentLoaded', function(eve){
+//     loadImage()
+// })
+
+// async function getData(url) {
+//     let response = await fetch(url)
+//     let text = await response.text()
+//     if (response.ok) {
+//         console.log('данный получены')
+//     } else {
+//         console.log('Ошибка' + response.status)
+//     }
+
+// }
+// getData('ya.ru')    
+// getData('ya.ru', true)  
+
+// async function getResult(x) {
+//     let response = await fetch('адрес сервера', {
+//                   method: 'POST',
+//                   headers: {
+//                     'Content-Type':'application/json; charset=utf-8'
+//                   },
+//                   body: JSON.stringify({'x': x})
+//                 })
+// }
+// let text = await response.text()
+// console.log(text)
+// getResult(5)
+
+// async function sendForm(event) {
+//     event.preventDefault()
+//     let responce = await fetch('lessss', {
+//         method: 'POST',
+//         body: new FormData(event.target)
+//     })
+//     if (response.ok) {
+//         let text = await responce.text()
+//         console.log(text)
+//         document.querySelector('#responce').innerHTML = 'Сумма равна' + text
+//     } else {
+//         console.log('Ошибка' + response.status)
+//     }
+// }
+
+// document.addEventListener('DOMContentLoaded', function(eve){
+//     document.querySelector('form').addEventListener('submit', sendForm)
+// })
+async function checkCourses (stock) {
+    let responce = await fetch('lessss' + stock)
+    if (response.ok) {
+        let course = await responce.text()
+        let elem = document.createElement('p')
+        elem.innerHTML = course + '$'
+        document.querySelector('# course').append(elem)
+    } 
+    setTimeout(checkCourses,1000, stock)
 }
-document.addEventListener('DOMContentLoaded', function(eve){
-    loadImage()
-})
-
-
+checkCourses('XYZ')
 </script>
 </html>
